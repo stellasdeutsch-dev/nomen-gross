@@ -1,0 +1,1557 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Почему немцы пишут существительные с большой буквы</title>
+<meta name="description" content="Поэтапный гайд: откуда в немецком большая буква у каждого существительного, зачем она нужна, где ловушки. Анимации, графики, видео и упражнения.">
+<meta property="og:title" content="Nomen. Почему в немецком все существительные с большой буквы">
+<meta property="og:description" content="История за 400 лет, ловушки, детектор существительных и упражнения с разбором.">
+<meta name="theme-color" content="#F3F07B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23F3F07B'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='38' text-anchor='middle' fill='%23161616'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/ma-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ma-800-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ma-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<script defer src="assets/gsap-bundle.min.js"></script>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#161616; --bg2:#1E1E1E; --card:#262626; --card2:#2F2F2F; --line:#3A3A3A;
+  --lav:#DCC5F7; --lav2:#A98BE0; --yel:#F3F07B; --yel2:#DCD95A; --ora:#EC6F47; --coral:#F0968B;
+  --white:#FFFFFF; --mute:#9C9C9C; --ink:#161616;
+  --f:"Montserrat Alternates","Montserrat",system-ui,sans-serif;
+  --gut:16px; --r:22px;
+}
+@media (min-width:760px){:root{--gut:32px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-width:none;-webkit-text-size-adjust:100%}
+html::-webkit-scrollbar{display:none}
+body{margin:0;background:var(--bg);color:var(--white);font:400 16px/1.55 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+main{overflow-x:clip;position:relative}
+img,svg,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px;border-radius:8px}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block;vertical-align:-.14em}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:var(--gut) calc(var(--gut) + 10px);position:relative}
+section{position:relative;padding-block:64px;scroll-margin-top:62px}
+@media (min-width:760px){section{padding-block:96px}}
+
+/* type */
+.eyebrow{font:600 11px/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:8px;margin:0}
+.eyebrow b{color:var(--ink);background:var(--yel);padding:4px 9px;border-radius:999px;letter-spacing:.06em}
+.h2{font:800 clamp(24px,6.6vw,58px)/1.02 var(--f);text-transform:uppercase;letter-spacing:-.01em;margin:16px 0 0;text-wrap:balance;hyphens:auto}
+.h2 .wd{display:inline-block}
+.h2 em{font-style:normal;color:var(--yel)}
+.h2 em.l{color:var(--lav)}.h2 em.o{color:var(--ora)}
+.h3{font:800 clamp(20px,5.4vw,34px)/1.08 var(--f);text-transform:uppercase;margin:52px 0 0;text-wrap:balance}
+.lede{font:400 clamp(17px,4.4vw,22px)/1.4 var(--f);color:#D9D9D9;max-width:34ch;margin:18px 0 0}
+.lede b{color:var(--white);font-weight:700}
+.giant{font:700 clamp(68px,23vw,230px)/.82 var(--f);letter-spacing:-.045em;margin:0;text-transform:none}
+.de{font-weight:700}
+.mute{color:var(--mute)}
+
+/* pills / chips */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:999px;border:0;background:var(--lav);color:var(--ink);font:600 11.5px/1 var(--f);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;text-decoration:none}
+.pill.y{background:var(--yel)}
+.pill.o{background:var(--ora);color:var(--ink)}
+.pill.line{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px currentColor}
+.pill.dark{background:var(--ink);color:var(--white)}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:var(--ink);color:var(--white);font:600 11px/1 var(--f)}
+.chip .ic{font-size:11px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:999px;border:0;background:var(--yel);color:var(--ink);font:700 15px/1 var(--f);text-decoration:none;transition:scale .2s,background .2s}
+.btn:active{scale:.97;background:var(--yel2)}
+.btn.lav{background:var(--lav)}
+.btn.lav:active{background:var(--lav2)}
+.btn.line{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px var(--white)}
+.btn.sm{padding:12px 18px;font-size:13px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
+
+/* card (course card style) */
+.card{border-radius:var(--r);padding:18px 18px 16px;color:var(--ink);position:relative;overflow:hidden}
+.card.y{background:var(--yel)}.card.l{background:var(--lav)}.card.o{background:var(--ora)}.card.w{background:var(--white)}
+.card.d{background:var(--card);color:var(--white)}
+.card .heart{position:absolute;right:16px;top:16px;font-size:22px}
+.card h4{margin:0;font:600 clamp(19px,5vw,24px)/1.1 var(--f);max-width:78%}
+.card .price{font:700 clamp(34px,10vw,48px)/1 var(--f);letter-spacing:-.02em;margin:22px 0 12px}
+.card .chips{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(22,22,22,.96);border-bottom:1px solid #262626}
+@media (min-width:900px){.top{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(22,22,22,.82)}}
+.top .wrap{display:flex;align-items:center;gap:10px;height:58px;padding-right:calc(var(--gut) + 6px)}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;flex:none}
+.brand i{width:30px;height:30px;border-radius:50%;background:var(--yel);color:var(--ink);display:grid;place-items:center;font:800 17px/1 var(--f);font-style:normal}
+.brand b{font:700 19px/1 var(--f);letter-spacing:-.03em}
+@media (max-width:420px){.brand b{display:none}}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;mask-image:linear-gradient(90deg,transparent 0,#000 12px,#000 calc(100% - 22px),transparent)}
+.nav::-webkit-scrollbar{display:none}
+.nav a{padding:8px 13px;font-size:10.5px;transition:background .3s}
+.nav a:first-child{margin-left:10px}
+.nav a.on{background:var(--yel)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--yel);transform-origin:left;transform:scaleX(0)}
+
+/* ---------- custom scrollbar rail ---------- */
+.rail{position:fixed;right:3px;top:70px;bottom:14px;width:26px;z-index:45;pointer-events:none}
+.rail .trk{position:absolute;left:50%;top:0;bottom:0;width:2px;translate:-50% 0;background:repeating-linear-gradient(180deg,rgba(220,197,247,.45) 0 4px,transparent 4px 9px);border-radius:2px;pointer-events:auto;cursor:pointer}
+.rail .trk::before{content:"";position:absolute;inset:0 -10px}
+.rail .tick{position:absolute;left:50%;width:8px;height:8px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--lav);translate:-50% -50%;transition:background .3s,box-shadow .3s,scale .3s}
+.rail .tick.on{background:var(--yel);box-shadow:none;scale:1.15}
+.thumb{position:absolute;left:0;top:0;width:26px;height:38px;border-radius:999px;border:0;background:var(--yel);color:var(--ink);display:grid;place-items:center;font:800 16px/1 var(--f);pointer-events:auto;touch-action:none;cursor:grab;opacity:.7;transition:opacity .3s,scale .25s cubic-bezier(.3,1.6,.5,1),background .3s;box-shadow:0 6px 16px -6px rgba(0,0,0,.6)}
+.thumb.mv{opacity:1;scale:.86 1.12;background:var(--lav)}
+.thumb.st{opacity:1}
+.thumb span{display:block;transition:scale .35s cubic-bezier(.3,1.8,.5,1)}
+.thumb.st span{animation:capPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes capPop{0%{scale:.4}100%{scale:1}}
+.thumb .tip{position:absolute;right:34px;top:50%;translate:0 -50%;background:var(--white);color:var(--ink);font:700 12px/1 var(--f);padding:8px 11px;border-radius:999px;white-space:nowrap;opacity:0;scale:.6;transform-origin:right center;transition:opacity .25s,scale .35s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+.thumb.st .tip{opacity:1;scale:1}
+.thumb.dr{cursor:grabbing}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--yel);color:var(--ink);padding:22px 0 40px;border-radius:0 0 34px 34px;overflow:hidden}
+.hero .giant{position:relative;margin:0 0 0 -.04em;display:flex;white-space:nowrap;line-height:.95}
+.hero .giant .lt{display:inline-block;animation:drop .9s cubic-bezier(.3,1.5,.5,1) both}
+.hero .giant .lt:nth-child(2){animation-delay:.06s}.hero .giant .lt:nth-child(3){animation-delay:.12s}.hero .giant .lt:nth-child(4){animation-delay:.18s}.hero .giant .lt:nth-child(5){animation-delay:.24s}
+@keyframes drop{from{transform:translateY(-.6em) rotate(-10deg)}}
+.capflip{display:inline-block;position:relative;perspective:600px}
+.capflip .U{position:absolute;left:0;top:0}
+.capflip.up .U{position:static}
+.capflip.up .lo{position:absolute;left:0;top:0}
+.capflip i{display:inline-block;font-style:normal;backface-visibility:hidden;transform-origin:50% 80%;transition:transform .6s cubic-bezier(.5,0,.2,1),opacity .4s}
+.capflip .U{transform:rotateX(90deg);opacity:0}
+.capflip.up .lo{transform:rotateX(-90deg);opacity:0}
+.capflip.up .U{transform:none;opacity:1}
+.hero .capflip{animation:none}
+.hero-stage{position:relative;display:grid;gap:18px;margin-top:6px}
+@media (min-width:900px){.hero-stage{grid-template-columns:minmax(0,1.1fr) 300px minmax(0,.9fr);align-items:end;gap:40px}}
+.hero h1{font:800 clamp(24px,6.8vw,64px)/1 var(--f);text-transform:uppercase;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.hero h1 span{display:inline-block;background:var(--ink);color:var(--yel);padding:0 .14em .04em;border-radius:12px;margin-top:.06em}
+.hero .lede{color:#2a2a2a;font-size:clamp(16px,4.2vw,20px)}
+.hero .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.hero .meta .chip{padding:7px 11px;font-size:11.5px}
+.doodle{position:absolute;pointer-events:none}
+.phwrap{position:relative;width:min(282px,74vw);margin-inline:auto}
+.hero .doodle.d1{width:min(38vw,190px);left:-22%;bottom:-6%;z-index:3;rotate:-8deg}
+@media (min-width:900px){.hero .doodle.d1{left:-40%}}
+.hero .doodle.d2{width:min(30vw,170px);right:-4%;top:-4%;z-index:1}
+.spark{position:absolute;width:26px;height:26px;fill:var(--ink);animation:tw 2.4s ease-in-out infinite alternate}
+@keyframes tw{to{scale:.55;rotate:45deg}}
+
+@media (min-width:900px){.hero h1{font-size:clamp(26px,2.6vw,38px)}.phwrap,.phone{width:300px}.hero .giant{font-size:min(19vw,230px)}}
+/* phone mockup */
+.phone{position:relative;z-index:2;width:min(282px,74vw);margin-inline:auto;aspect-ratio:9/17;border-radius:46px;background:#111;padding:12px;box-shadow:0 0 0 3px #3b3b3b,0 0 0 6px #191919,0 40px 70px -30px rgba(0,0,0,.65);animation:rise 1.1s .3s cubic-bezier(.3,1.3,.5,1) both}
+@keyframes rise{from{transform:translateY(60px) rotate(4deg)}}
+.screen{position:relative;height:100%;border-radius:36px;background:#191919;overflow:hidden;padding:12px 14px;color:#fff;display:flex;flex-direction:column;gap:12px}
+.sbar{display:flex;justify-content:space-between;align-items:center;font:600 12px/1 var(--f);padding:2px 8px 0}
+.island{position:absolute;left:50%;top:10px;translate:-50% 0;width:88px;height:24px;border-radius:20px;background:#000}
+.hello{display:flex;align-items:center;gap:9px;font:600 14px/1 var(--f);color:var(--lav);margin-top:8px}
+.hello .av{width:32px;height:32px;border-radius:50%;background:var(--yel);display:grid;place-items:center}
+.hello .bell{margin-left:auto;color:var(--yel);font-size:16px}
+.sch{display:flex;gap:5px;flex-wrap:wrap}
+.sch span{font:500 9.5px/1 var(--f);padding:6px 9px;border-radius:999px;box-shadow:inset 0 0 0 1px #fff}
+.sch span.on{background:var(--yel);color:var(--ink);box-shadow:none}
+.scr-h{font:700 14px/1 var(--f);margin:2px 0 0}
+.ptext{background:var(--card);border-radius:16px;padding:12px;font:600 15px/1.35 var(--f)}
+.ptext .w{display:inline-block;margin-right:.26em;transition:color .3s}
+.ptext .w.n{color:var(--yel)}
+.ptext small{display:block;font:500 10px/1.3 var(--f);color:var(--mute);margin-top:8px}
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pc{border-radius:14px;padding:9px;color:var(--ink);min-height:96px;display:flex;flex-direction:column;position:relative}
+.pc b{font:600 11px/1.15 var(--f)}
+.pc strong{font:700 19px/1 var(--f);margin-top:auto}
+.pc .chip{font-size:8px;padding:3px 6px;margin-top:6px;align-self:flex-start}
+.pc .ic.h{position:absolute;right:8px;top:8px;font-size:12px}
+.tabbar{margin-top:auto;background:#2A2A2A;border-radius:22px;display:flex;justify-content:space-around;padding:8px 4px}
+.tabbar span{display:flex;flex-direction:column;align-items:center;gap:3px;font:500 7.5px/1 var(--f);color:#777}
+.tabbar span.on{color:#fff}
+.tabbar .ic{font-size:14px}
+
+/* curved running text */
+.wave{position:relative;height:clamp(110px,26vw,260px);margin-block:-10px;overflow:hidden;pointer-events:none}
+.wave svg{position:absolute;left:50%;top:0;width:max(140%,1100px);height:100%;translate:-50% 0;overflow:visible}
+.wave text{font:600 78px/1 var(--f);letter-spacing:-.02em}
+
+/* ---------- STORY ---------- */
+.feed{display:grid;grid-auto-flow:column;grid-auto-columns:min(82%,330px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:26px calc(var(--gut)*-1) 0;padding:4px var(--gut) 14px;scrollbar-width:none}
+.feed::-webkit-scrollbar{display:none}
+@media (min-width:980px){.feed{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin-inline:0;padding-inline:0}}
+.story{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.story .card{min-height:236px;display:flex;flex-direction:column}
+.story .card .price{margin-top:auto}
+.story p{margin:0;font-size:15px;color:#D6D6D6}
+.story p b{color:#fff}
+.swipe{display:flex;align-items:center;gap:8px;font:600 11px/1 var(--f);color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.swipe .ic{animation:nudge 1.2s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(6px)}}
+@media (min-width:980px){.swipe{display:none}}
+
+/* ---------- PROCESS boxes ---------- */
+.proc{display:grid;gap:12px;margin-top:30px;position:relative}
+@media (min-width:860px){.proc{grid-template-columns:repeat(4,1fr)}}
+.proc .ln{position:absolute;left:28px;top:20px;bottom:20px;width:2px;background:#3d3d3d;z-index:0}
+.proc .ln i{position:absolute;inset:0;background:var(--lav);transform-origin:top;transform:scaleY(1)}
+@media (min-width:860px){.proc .ln{left:20px;right:20px;top:50%;bottom:auto;height:2px;width:auto}.proc .ln i{transform-origin:left}}
+.pbox{position:relative;z-index:1;border-radius:var(--r);padding:20px 20px 18px;color:var(--ink);text-decoration:none;display:block;transition:scale .25s cubic-bezier(.3,1.6,.5,1),rotate .25s}
+.pbox:hover{scale:1.02;rotate:-1deg}
+.pbox h3{margin:0;font:800 20px/1 var(--f);text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.pbox h3 small{font:700 11px/1 var(--f);background:var(--ink);color:#fff;padding:5px 8px;border-radius:999px}
+.pbox ul{margin:12px 0 0;padding:0;list-style:none;font:500 14.5px/1.55 var(--f)}
+.pbox li::before{content:"• "}
+
+/* ---------- RULE scanner ---------- */
+.scan{margin-top:30px;background:var(--bg2);border-radius:28px;padding:20px 16px 18px;border:1px solid #2b2b2b}
+@media (min-width:760px){.scan{padding:30px}}
+.scan-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sline{position:relative;display:flex;flex-wrap:wrap;gap:30px 10px;font:700 clamp(25px,7.2vw,46px)/1 var(--f);padding:38px 0 8px;min-height:150px;align-content:flex-start}
+.sw{position:relative;display:inline-flex;padding:4px 6px 6px;border-radius:12px;transition:background .35s,color .35s,opacity .35s}
+.sw::before{content:attr(data-t);position:absolute;left:4px;top:-22px;font:700 9px/1 var(--f);letter-spacing:.1em;padding:4px 7px;border-radius:999px;background:var(--yel);color:var(--ink);opacity:0;transform:translateY(6px) scale(.8);transition:opacity .3s,transform .35s cubic-bezier(.3,1.7,.5,1);white-space:nowrap}
+.sw.scan-on{box-shadow:inset 0 0 0 2px var(--lav)}
+.sw.dim{opacity:.35}
+.sw.noun{background:var(--yel);color:var(--ink)}
+.sw.noun::before{opacity:1;transform:none;background:var(--ink);color:var(--yel)}
+.sw.start::before{opacity:1;transform:none;background:var(--lav)}
+.sw.subst{background:var(--ora);color:var(--ink)}
+.sw.subst::before{opacity:1;transform:none;background:var(--ink);color:var(--ora)}
+.sru{font:500 15px/1.4 var(--f);color:var(--mute);margin:10px 0 0;min-height:1.4em}
+.sres{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.ctrl{display:flex;align-items:center;gap:10px;margin-top:18px}
+.ctrl .nav2{width:44px;height:44px;border-radius:50%;border:0;background:var(--card2);color:#fff;display:grid;place-items:center;font-size:18px;flex:none}
+.dots{display:flex;gap:6px;flex:1}
+.dots i{height:5px;flex:1;background:#3a3a3a;border-radius:3px;transition:background .3s}
+.dots i.on{background:var(--yel)}
+.lanes{display:grid;gap:10px;margin-top:22px}
+@media (min-width:760px){.lanes{grid-template-columns:1fr 1fr}}
+.lane{border-radius:var(--r);padding:16px 18px;background:var(--card)}
+.lane.de2{background:var(--lav);color:var(--ink)}
+.lane .lh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lane .flag{font:800 11px/1 var(--f);padding:6px 9px;border-radius:8px;background:var(--white);color:var(--ink)}
+.lane.de2 .flag{background:var(--ink);color:var(--lav)}
+.lane .big{font:700 clamp(21px,5.8vw,30px)/1.25 var(--f);margin-top:12px}
+.lane .big u{text-decoration:none;background:var(--yel);color:var(--ink);padding:0 3px;border-radius:5px}
+.lane.de2 .big u{background:var(--ink);color:var(--yel)}
+.lane small{display:block;font:500 13px/1.4 var(--f);color:var(--mute);margin-top:8px}
+.lane.de2 small{color:#4a3f5c}
+
+/* ---------- HISTORY timeline ---------- */
+.evo{position:sticky;top:66px;z-index:5;margin-top:26px;background:var(--lav);color:var(--ink);border-radius:24px;padding:14px 16px 16px;box-shadow:0 18px 30px -18px rgba(0,0,0,.9)}
+.evo .lh{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase}
+.evo .yr{background:var(--ink);color:var(--yel);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.02em}
+.evo .sent{font:700 clamp(17px,4.9vw,30px)/1.35 var(--f);margin-top:10px}
+.evo .sent .ew{display:inline-block;margin-right:.24em}
+.evo .sent .capflip.up .U{color:#7B3FE4}
+.evo .cnt{font:600 12px/1 var(--f);margin-top:10px;display:flex;align-items:center;gap:6px}
+.evo .bar{height:6px;border-radius:3px;background:rgba(22,22,22,.15);margin-top:8px;overflow:hidden}
+.evo .bar i{display:block;height:100%;width:0;background:var(--ink);border-radius:3px;transition:width .6s cubic-bezier(.5,0,.2,1)}
+.tl{position:relative;margin-top:26px;padding-left:44px}
+.tl .ln{position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:#333}
+.tl .ln i{position:absolute;inset:0;background:var(--yel);transform-origin:top;transform:scaleY(1)}
+.node{position:relative;padding:16px 0 30px}
+.node .dot{position:absolute;left:-44px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--card2);color:#fff;display:grid;place-items:center;font-size:15px;transition:background .4s,color .4s,scale .4s cubic-bezier(.3,1.7,.5,1)}
+.node.on .dot{background:var(--yel);color:var(--ink);scale:1.12}
+.node .when{font:800 clamp(26px,7vw,40px)/1 var(--f);letter-spacing:-.02em;color:var(--white)}
+.node h4{margin:6px 0 8px;font:700 13px/1.2 var(--f);text-transform:uppercase;letter-spacing:.08em;color:var(--lav)}
+.node p{margin:0;color:#D3D3D3;max-width:46ch}
+.node p b{color:#fff}
+.node .ex{display:inline-block;margin-top:10px;background:var(--card);border-radius:12px;padding:8px 12px;font:600 15px/1.3 var(--f)}
+.node .ex u{text-decoration:none;color:var(--yel)}
+
+/* personas */
+.pers{display:grid;gap:12px;margin-top:26px}
+@media (min-width:760px){.pers{grid-template-columns:1fr 1fr}}
+.per{border-radius:var(--r);padding:20px;color:var(--ink);display:grid;grid-template-columns:1fr auto;gap:4px 14px}
+.per h4{margin:0;font:800 clamp(19px,5vw,26px)/1.05 var(--f);text-transform:uppercase}
+.per small{grid-column:1;font:600 11px/1.3 var(--f);text-transform:uppercase;letter-spacing:.04em}
+.per .face{grid-column:2;grid-row:1/span 3;width:76px;height:76px;border-radius:50%;background:var(--ink);display:grid;place-items:center;position:relative}
+.per .face svg{width:62px;height:62px}
+.per p{grid-column:1/-1;margin:12px 0 0;font:500 14.5px/1.5 var(--f)}
+.vote{grid-column:1;justify-self:start;margin-top:8px;font:800 11px/1 var(--f);padding:6px 10px;border-radius:999px;background:var(--ink);color:#fff;display:inline-flex;gap:6px;align-items:center}
+.vote.no{background:#fff;color:var(--ink)}
+
+/* ---------- NUMBERS charts ---------- */
+.charts{display:grid;gap:14px;margin-top:28px}
+@media (min-width:900px){.charts{grid-template-columns:1.15fr .85fr}}
+.panel{background:var(--bg2);border:1px solid #2b2b2b;border-radius:26px;padding:18px 16px}
+@media (min-width:760px){.panel{padding:26px}}
+.panel h5{margin:0 0 14px;font:700 11px/1.3 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}
+.tabs{display:inline-flex;background:var(--card);border-radius:999px;padding:4px;gap:2px}
+.tabs button{border:0;background:transparent;color:#bbb;padding:9px 14px;border-radius:999px;font:700 12px/1 var(--f)}
+.tabs button[aria-pressed="true"]{background:var(--yel);color:var(--ink)}
+.ctext{margin-top:14px;font:500 15.5px/1.6 var(--f);color:#cfcfcf;min-height:9.5em}
+.ctext mark{background:var(--yel);color:var(--ink);border-radius:4px;padding:0 1px}
+.bars{display:grid;gap:12px;margin-top:16px}
+.bar2{display:grid;grid-template-columns:44px 1fr 46px;align-items:center;gap:10px;font:700 13px/1 var(--f)}
+.bar2 .t{height:30px;border-radius:10px;background:var(--card);overflow:hidden;position:relative}
+.bar2 .t i{position:absolute;inset:0;border-radius:10px;transform-origin:left;transition:transform 1s cubic-bezier(.3,1.2,.5,1)}
+.bar2 b{text-align:right;font-size:18px}
+.donut{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center}
+@media (max-width:380px){.donut{grid-template-columns:120px 1fr}}
+.donut svg{width:100%;height:auto;rotate:-90deg}
+.donut circle{fill:none;stroke-width:22}
+.donut .ctr{position:relative}
+.donut .ctr span{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:800 28px/1 var(--f)}
+.donut .ctr span small{display:block;font:600 9px/1.15 var(--f);color:var(--mute);margin-top:4px}
+.legend{display:grid;gap:8px;font:500 13.5px/1.25 var(--f)}
+.legend div{display:flex;gap:8px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:4px;flex:none}
+.legend b{margin-left:auto}
+.gantt{margin-top:14px;position:relative}
+.gr{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center;margin-bottom:10px;font:600 13px/1.2 var(--f)}
+.gr .t{position:relative;height:26px;background:repeating-linear-gradient(90deg,#2f2f2f 0 1px,transparent 1px 19.05%)}
+.gr .t i{position:absolute;top:3px;bottom:3px;border-radius:8px;transform-origin:left}
+.gr .t i span{position:absolute;right:6px;top:50%;translate:0 -50%;font:700 10px/1 var(--f);color:var(--ink);white-space:nowrap}
+.gaxis{display:grid;grid-template-columns:96px 1fr;gap:10px;font:600 10px/1 var(--f);color:var(--mute)}
+.gaxis div:last-child{position:relative;height:12px}
+.gaxis div:last-child span{position:absolute;top:0;translate:-50% 0}
+.gaxis div:last-child span:first-child{translate:0 0}
+.note{margin:12px 0 0;font:500 12px/1.4 var(--f);color:var(--mute)}
+.quote{margin-top:14px;border-radius:var(--r);background:var(--white);color:var(--ink);padding:18px;font:600 clamp(16px,4.4vw,20px)/1.45 var(--f)}
+.quote u{text-decoration:none;background:var(--lav);padding:0 3px;border-radius:4px}
+.quote small{display:block;font:500 12px/1.3 var(--f);color:#555;margin-top:10px}
+
+/* ---------- WHY ---------- */
+.read{margin-top:26px}
+.rtext{margin-top:14px;background:var(--white);color:var(--ink);border-radius:var(--r);padding:20px 18px;font:600 clamp(19px,5.2vw,26px)/1.45 var(--f)}
+.rtext span{transition:opacity .45s,color .3s,background .3s;border-radius:5px}
+.rtext.skel span:not(.nn){opacity:.1}
+.rtext.skel .nn{background:var(--yel);padding:0 3px}
+.rcap{font:500 14px/1.45 var(--f);color:var(--mute);margin:12px 0 0;min-height:2.9em}
+.pairs{margin-top:22px}
+.pairbox{background:var(--yel);color:var(--ink);border-radius:28px;padding:20px 18px;position:relative;overflow:hidden;margin-top:12px}
+.pairbox .lh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.psent{position:relative;font:700 clamp(28px,8.4vw,52px)/1.1 var(--f);margin-top:34px;display:flex;flex-wrap:wrap;gap:.1em .3em;letter-spacing:-.015em}
+.psent .pw{display:inline-flex}
+.psent .capflip.up .U{color:#6B2FD6}
+.flyer{position:absolute;left:0;top:0;width:34px;height:44px;border-radius:10px;background:var(--ink);opacity:0;pointer-events:none;z-index:3}
+.flyer::after{content:"";position:absolute;left:50%;top:-14px;translate:-50% 0;width:14px;height:14px;background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pmean{display:flex;align-items:center;gap:14px;margin-top:20px;background:var(--ink);color:#fff;border-radius:18px;padding:14px}
+.pmean .pic{width:54px;height:54px;border-radius:16px;background:var(--lav);color:var(--ink);display:grid;place-items:center;font-size:28px;flex:none}
+.pmean b{display:block;font:700 17px/1.25 var(--f)}
+.pmean small{font:500 12.5px/1.3 var(--f);color:#bbb}
+
+/* ---------- TRAPS ---------- */
+.fab{margin-top:26px;background:var(--bg2);border:1px solid #2b2b2b;border-radius:28px;padding:18px 12px;display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+@media (min-width:760px){.fab{padding:28px}}
+.fab h5{grid-column:1/-1;margin:0 0 6px 4px;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}
+.fcol{display:grid;gap:8px;min-width:0}
+.fc{display:block;padding:10px 10px;border-radius:12px;font:600 clamp(12.5px,3.6vw,16px)/1.1 var(--f);background:var(--card);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:translate .6s cubic-bezier(.6,0,.2,1),scale .6s,opacity .5s,background .3s,color .3s}
+.fin .fc.go{translate:50% 0;scale:.7;opacity:0}
+.fout .fc{opacity:.2;translate:-30% 0;scale:.85}
+.fout .fc.on{opacity:1;translate:0 0;scale:1;background:var(--yel);color:var(--ink)}
+.fout .fc b{font-weight:800}
+.mach{width:clamp(64px,19vw,104px);aspect-ratio:1;border-radius:24px;background:var(--lav);color:var(--ink);display:grid;place-items:center;text-align:center;font:800 clamp(10px,2.9vw,13px)/1.1 var(--f);position:relative}
+.mach .ic{font-size:26px;display:block;margin:0 auto 4px}
+.mach.work{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px) rotate(-3deg)}75%{transform:translateX(5px) rotate(3deg)}}
+.sig{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sig span{font:700 15px/1 var(--f);padding:10px 14px;border-radius:999px;background:var(--card);color:var(--yel)}
+.ds{display:grid;gap:14px;margin-top:22px}
+@media (min-width:860px){.ds{grid-template-columns:1fr 1fr}}
+.dscol{border:1.5px dashed #7a5bb8;border-radius:22px;padding:16px}
+.dscol h5{margin:0 0 12px;font:800 15px/1 var(--f);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.dsr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.dsb{border:0;border-radius:999px;padding:13px 10px;font:600 13.5px/1.15 var(--f);text-align:center;transition:scale .2s,background .2s}
+.dsb.big{background:var(--yel);color:var(--ink)}
+.dsb.small{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px #fff}
+.dsb:active{scale:.95}
+.dsr small{grid-column:1/-1;font:500 12.5px/1.35 var(--f);color:var(--mute);padding:0 6px 6px}
+.siebox{margin-top:16px;display:grid;gap:10px}
+@media (min-width:760px){.siebox{grid-template-columns:1fr 1fr}}
+.sie{border-radius:var(--r);padding:18px;position:relative;overflow:hidden}
+.sie.a{background:var(--lav);color:var(--ink)}.sie.b{background:var(--card);color:#fff}
+.sie b{display:block;font:700 clamp(22px,6vw,30px)/1.15 var(--f);margin:10px 0 8px}
+.sie p{margin:0;font-size:14.5px}
+.sie .big-ic{position:absolute;right:14px;top:14px;font-size:34px}
+
+/* ---------- DETECTOR flow ---------- */
+.flow{margin-top:26px;background:var(--bg2);border:1px solid #2b2b2b;border-radius:28px;padding:18px 14px;position:relative}
+@media (min-width:760px){.flow{padding:28px}}
+.flow .legendf{display:flex;gap:12px;flex-wrap:wrap;font:500 11.5px/1 var(--f);color:#bbb;margin-bottom:16px}
+.flow .legendf span{display:flex;align-items:center;gap:6px}
+.flow .legendf i{width:14px;height:14px;border-radius:50%}
+.fchip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.fq{font:700 clamp(19px,5.2vw,26px)/1.1 var(--f);background:var(--yel);color:var(--ink);padding:12px 18px;border-radius:999px;display:inline-block}
+.fa{font:800 clamp(18px,4.8vw,24px)/1.2 var(--f);color:var(--yel);opacity:0;transform:translateX(-10px);transition:all .4s}
+.fa.on{opacity:1;transform:none}
+.fa.sm{color:var(--coral)}
+.fn{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px}
+.fqq{background:var(--lav);color:var(--ink);border-radius:999px;padding:11px 14px;font:600 13.5px/1.25 var(--f);display:flex;gap:8px;align-items:center;opacity:.4;transition:opacity .3s,transform .3s,box-shadow .3s}
+.fqq .ic{font-size:17px}
+.fy{display:flex;align-items:center;gap:6px;opacity:.28;transition:opacity .3s}
+.fy em{font:700 10.5px/1 var(--f);font-style:normal;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:3px;color:#ccc}
+.res{font:800 12px/1.1 var(--f);padding:10px 12px;border-radius:999px;background:var(--white);color:var(--ink);text-transform:uppercase;text-align:center;transition:scale .4s cubic-bezier(.3,1.7,.5,1),rotate .4s}
+.res.y{background:var(--yel)}
+.res.c{background:var(--coral)}
+.fno{display:flex;align-items:center;gap:8px;height:32px;padding-left:24px;font:700 10.5px/1 var(--f);text-transform:uppercase;letter-spacing:.06em;color:#bbb;opacity:.3;transition:opacity .3s}
+.fno::before{content:"";width:2px;height:100%;background:var(--lav)}
+.fn.chk .fqq{opacity:1;transform:scale(1.02)}
+.fn.miss .fqq{opacity:.55;transform:none}
+.fn.hit .fqq{opacity:1;box-shadow:0 0 0 3px var(--yel)}
+.fn.hit .fy{opacity:1}
+.fn.hit .res{scale:1.1;rotate:-3deg}
+.fno.on{opacity:1}
+.fn.else{grid-template-columns:auto}
+.fn.else .res{opacity:.35}
+.fn.else.hit .res{opacity:1}
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.swt{border:0;border-radius:18px;min-height:clamp(112px,30vw,160px);padding:12px 10px;text-align:left;display:flex;flex-direction:column;gap:4px;color:var(--ink);position:relative;overflow:hidden;transition:scale .25s cubic-bezier(.3,1.6,.5,1),rotate .25s}
+.swt:active{scale:.95}
+.swt small{font:600 9px/1.2 var(--f);letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.swt b{font:800 clamp(20px,6vw,32px)/1 var(--f)}
+.swt span{margin-top:auto;font:600 clamp(11.5px,3.3vw,15px)/1.2 var(--f)}
+.swt i{font-style:normal;font:500 10.5px/1.2 var(--f);opacity:.75}
+.swt .ic{position:absolute;right:10px;top:10px;font-size:14px;opacity:.6}
+.swt.dk{color:#fff}
+
+/* ---------- VIDEO ---------- */
+.vids{display:grid;gap:16px;margin-top:28px}
+@media (min-width:900px){.vids{grid-template-columns:1.25fr .75fr;align-items:start}}
+.vcard{background:var(--card);border-radius:28px;padding:14px;position:relative}
+.vframe{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
+.vframe img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vplay{position:absolute;inset:0;display:grid;place-items:center;border:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55));padding:0}
+.vplay i{width:68px;height:68px;border-radius:50%;background:var(--yel);color:var(--ink);display:grid;place-items:center;font-size:26px;transition:scale .3s cubic-bezier(.3,1.7,.5,1)}
+.vplay:hover i{scale:1.1}
+.vplay .ic{fill:currentColor;translate:2px 0}
+.vprog{height:4px;border-radius:2px;background:#444;margin:14px 4px 0;position:relative;overflow:hidden}
+.vprog i{position:absolute;inset:0;background:var(--yel);transform-origin:left;transform:scaleX(.18)}
+.vmeta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 4px 4px}
+.vmeta h4{margin:0;font:700 17px/1.25 var(--f)}
+.vmeta small{display:block;color:var(--mute);font:500 12.5px/1.4 var(--f);margin-top:6px}
+.vmeta .ic{font-size:20px;flex:none}
+.vnote{margin:12px 4px 4px;font:500 14.5px/1.5 var(--f);color:#D3D3D3}
+.vnote b{color:var(--yel)}
+.vwatch{display:grid;gap:8px;margin-top:12px}
+.vwatch div{display:flex;gap:10px;align-items:flex-start;background:var(--bg2);border-radius:14px;padding:10px 12px;font:500 14px/1.4 var(--f)}
+.vwatch b{color:var(--lav);font-weight:800;min-width:38px}
+
+/* ---------- PRACTICE ---------- */
+.ex{margin-top:28px;border-radius:28px;padding:20px 16px;position:relative}
+@media (min-width:760px){.ex{padding:30px}}
+.ex.letter{background:var(--white);color:var(--ink)}
+.ex .exh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.ex .exh h4{margin:0;font:800 clamp(19px,5vw,26px)/1.1 var(--f);text-transform:uppercase}
+.ex .exh p{margin:6px 0 0;font:500 14px/1.4 var(--f);color:#555;max-width:44ch}
+.paper{margin-top:16px;background:#F6F4FB;border-radius:18px;padding:16px 14px;font:600 clamp(17px,4.7vw,22px)/1.75 var(--f);border:1.5px dashed #c9b7ea}
+.paper .tw{border:0;background:transparent;padding:0 1px;font:inherit;color:inherit;border-radius:6px;transition:background .25s,color .25s,box-shadow .25s}
+.paper .tw:hover{background:#ece2fb}
+.paper .tw.cap{background:var(--lav)}
+.paper .tw.ok{background:var(--yel);color:var(--ink)}
+.paper .tw.miss{box-shadow:inset 0 -3px 0 var(--ora);background:rgba(236,111,71,.12)}
+.paper .tw.bad{background:var(--ora);color:#fff;text-decoration:line-through}
+.paper .fx{color:#555}
+.exbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.exbar .score{font:800 15px/1 var(--f);margin-left:auto}
+.expl{margin-top:16px;display:none;gap:8px}
+.expl.on{display:grid}
+@media (min-width:760px){.expl.on{grid-template-columns:1fr 1fr}}
+.expl div{display:flex;gap:10px;align-items:flex-start;background:#F1EEF6;border-radius:14px;padding:10px 12px;font:500 14px/1.4 var(--f)}
+.expl div b{font-weight:800;white-space:nowrap}
+.expl div .ic{font-size:18px;margin-top:1px;color:#6B2FD6}
+.expl div.trap .ic{color:var(--ora)}
+.quiz{margin-top:16px;background:var(--lav);color:var(--ink);border-radius:28px;padding:20px 16px;position:relative;overflow:hidden}
+@media (min-width:760px){.quiz{padding:30px}}
+.qbar{display:flex;gap:5px}
+.qbar i{flex:1;height:6px;border-radius:3px;background:rgba(22,22,22,.15);transition:background .3s}
+.qbar i.ok{background:var(--ink)}.qbar i.bad{background:var(--ora)}.qbar i.cur{background:#fff}
+.qn{font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;margin-top:18px;opacity:.7}
+.qq{font:700 clamp(22px,6.2vw,34px)/1.2 var(--f);margin:10px 0 18px}
+.qq u{text-decoration:none;display:inline-block;min-width:2.6em;border-bottom:3px solid var(--ink);text-align:center}
+.qo{display:grid;gap:8px}
+@media (min-width:600px){.qo{grid-template-columns:1fr 1fr}}
+.qo button{border:0;background:var(--ink);color:#fff;padding:17px 16px;border-radius:999px;font:700 18px/1 var(--f);transition:translate .2s,background .2s,color .2s}
+.qo button:hover:not(:disabled){translate:0 -2px}
+.qo button.ok{background:var(--yel);color:var(--ink)}
+.qo button.bad{background:var(--ora);color:var(--ink)}
+.qo button:disabled{cursor:default}
+.qx{margin-top:16px;padding:14px 16px;background:rgba(255,255,255,.55);border-radius:18px;font:500 15px/1.45 var(--f);min-height:3.2em;display:flex;gap:10px;align-items:flex-start}
+.qx .ic{font-size:22px;margin-top:1px}
+.qnext{margin-top:14px}
+.qres .score{font:800 clamp(80px,24vw,150px)/.9 var(--f);letter-spacing:-.04em;display:flex;align-items:center;gap:14px}
+.qres .score .ic{font-size:.45em}
+.conf{position:absolute;width:10px;height:14px;left:50%;top:40%;pointer-events:none;border-radius:3px}
+
+/* ---------- CHEAT ---------- */
+.cheat{margin-top:26px;display:grid;gap:8px}
+@media (min-width:860px){.cheat{grid-template-columns:1fr 1fr}}
+.ch{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:14px;border-radius:20px;background:var(--card);align-items:start}
+.ch .ci{grid-row:1/span 2;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:20px;color:var(--ink)}
+.ch b{font:800 12px/1.3 var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.ch span{font:600 15.5px/1.45 var(--f)}
+.ch span i{font-style:normal;color:var(--yel)}
+
+/* ---------- OUTRO ---------- */
+.outro{padding-bottom:30px}
+.outro .giant{color:var(--lav);font-size:clamp(58px,19vw,200px);line-height:.86}
+.outro .giant .w2{display:block;white-space:nowrap}
+.outro .giant .capflip.up .U{color:var(--yel)}
+.outro .lede{max-width:40ch}
+footer{border-top:1px solid #262626;padding:24px 0 40px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+
+/* ---------- voice picker ---------- */
+.vbtn{flex:none;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;background:var(--card2);color:#fff;padding:8px 11px;font:700 11px/1 var(--f);letter-spacing:.04em}
+.vbtn .ic{font-size:15px;color:var(--yel)}
+.no-tts .vbtn,.no-tts .vchip{display:none}
+.vchip{border:0;cursor:pointer}
+.sheet-bg{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s}
+.sheet-bg.open{opacity:1}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;max-height:88vh;overflow-y:auto;background:var(--bg2);border-radius:30px 30px 0 0;padding:10px var(--gut) calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .45s cubic-bezier(.3,1.15,.5,1);box-shadow:0 -20px 50px rgba(0,0,0,.5);scrollbar-width:none}
+.sheet.open{transform:none}
+@media (min-width:760px){.sheet{left:auto;right:24px;bottom:24px;width:420px;border-radius:30px}}
+.grab{width:44px;height:5px;border-radius:3px;background:#555;margin:2px auto 12px}
+.sh-top{display:flex;justify-content:space-between;align-items:center}
+.sh-top h3{margin:0;font:800 22px/1 var(--f);text-transform:uppercase}
+.sh-top .close{width:40px;height:40px;border-radius:50%;border:0;background:var(--card2);color:#fff;display:grid;place-items:center;font-size:18px}
+.sh-l{margin:20px 0 10px;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between}
+.regs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.reg{border:0;border-radius:20px;padding:12px 10px;text-align:left;background:var(--card);color:#fff;display:flex;flex-direction:column;gap:6px;transition:background .25s,color .25s,scale .25s cubic-bezier(.3,1.6,.5,1)}
+.reg:active{scale:.95}
+.reg b{font:800 14px/1 var(--f)}
+.reg small{font:500 11px/1.25 var(--f);opacity:.75}
+.reg em{font:600 12.5px/1.1 var(--f);font-style:normal}
+.reg[aria-pressed="true"]{background:var(--yel);color:var(--ink)}
+.flg{width:26px;height:18px;border-radius:4px;overflow:hidden;display:block;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.15)}
+.flg.de{background:linear-gradient(#000 0 33.3%,#DD0000 33.3% 66.6%,#FFCE00 66.6%)}
+.flg.at{background:linear-gradient(#C8102E 0 33.3%,#fff 33.3% 66.6%,#C8102E 66.6%)}
+.flg.ch{width:18px;background:#D52B1E;position:relative}
+.flg.ch::before,.flg.ch::after{content:"";position:absolute;left:50%;top:50%;translate:-50% -50%;background:#fff}
+.flg.ch::before{width:10px;height:3px}.flg.ch::after{width:3px;height:10px}
+.vlist{display:grid;gap:6px;max-height:230px;overflow-y:auto;scrollbar-width:thin}
+.vopt{border:0;border-radius:16px;padding:11px 14px;background:var(--card);color:#fff;text-align:left;display:flex;align-items:center;gap:10px;font:600 14px/1.2 var(--f)}
+.vopt small{margin-left:auto;font:700 10.5px/1 var(--f);padding:5px 8px;border-radius:999px;background:var(--ink);color:var(--lav)}
+.vopt[aria-pressed="true"]{background:var(--lav);color:var(--ink)}
+.vopt[aria-pressed="true"] small{background:var(--ink);color:var(--yel)}
+.vopt .ic{font-size:16px;opacity:0}
+.vopt[aria-pressed="true"] .ic{opacity:1}
+.vempty{font:500 14px/1.45 var(--f);color:#ccc;background:var(--card);border-radius:16px;padding:12px 14px}
+.sh-note{margin:14px 0 0;font:500 12.5px/1.45 var(--f);color:var(--mute)}
+.sh-note b{color:var(--yel)}
+.sheet .btn{width:100%;margin-top:18px}
+
+/* say buttons */
+.say{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;border:0;background:var(--ink);color:#fff;flex:none;vertical-align:middle;padding:0}
+.say .ic{font-size:15px}
+.say.on{background:#6B2FD6;animation:pulse .6s ease infinite alternate}
+@keyframes pulse{to{scale:1.15}}
+.no-tts .say{display:none}
+
+/* reveal fallback */
+.rv.in{animation:riseIn .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}}
+.stg.in>*{animation:popIn .6s cubic-bezier(.3,1.4,.5,1) both;animation-delay:calc(var(--i,0)*70ms)}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.95)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01s!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star4" viewBox="0 0 40 40"><path d="M20 0C21.5 13 27 18.5 40 20 27 21.5 21.5 27 20 40 18.5 27 13 21.5 0 20 13 18.5 18.5 13 20 0Z"/></symbol>
+  <symbol id="dude" viewBox="0 0 220 240">
+    <defs><pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#161616"/></pattern></defs>
+    <path d="M110 8 124 52 160 18 158 66 206 50 180 92 216 110 178 128 204 168 156 160 160 210 124 178 110 226 96 180 58 214 64 162 14 172 42 130 4 110 42 92 16 50 64 66 60 18 96 52Z" fill="#fff" stroke="#161616" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M150 140 156 160 160 210 124 178 110 226 108 190C130 186 146 166 150 140Z" fill="url(#dots)"/>
+    <ellipse cx="90" cy="104" rx="15" ry="19" fill="#fff" stroke="#161616" stroke-width="5"/>
+    <ellipse cx="128" cy="104" rx="15" ry="19" fill="#fff" stroke="#161616" stroke-width="5"/>
+    <ellipse cx="94" cy="100" rx="7" ry="9" fill="#161616"/><ellipse cx="132" cy="100" rx="7" ry="9" fill="#161616"/>
+    <path d="M88 140C100 156 122 156 134 140" fill="none" stroke="#161616" stroke-width="5" stroke-linecap="round"/>
+    <path d="M94 146C104 160 120 160 128 146" fill="#fff" stroke="#161616" stroke-width="4"/>
+  </symbol>
+  <symbol id="face" viewBox="0 0 60 60">
+    <circle cx="30" cy="30" r="26" fill="#fff" stroke="#161616" stroke-width="3"/>
+    <ellipse cx="22" cy="26" rx="5" ry="6.5" fill="#161616"/><ellipse cx="38" cy="26" rx="5" ry="6.5" fill="#161616"/>
+    <circle cx="23.5" cy="24" r="1.6" fill="#fff"/><circle cx="39.5" cy="24" r="1.6" fill="#fff"/>
+    <path d="M20 38c5 6 15 6 20 0" fill="none" stroke="#161616" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></symbol>
+<symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+<symbol id="i-volume-2" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol>
+<symbol id="i-bug" viewBox="0 0 24 24"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></symbol>
+<symbol id="i-footprints" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="i-laugh" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M18 13a6 6 0 0 1-6 5 6 6 0 0 1-6-5h12Z"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></symbol>
+<symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+<symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></symbol>
+<symbol id="i-signpost" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="M12 3v3"/><path d="M18 6a2 2 0 0 1 1.387.56l2.307 2.22a1 1 0 0 1 0 1.44l-2.307 2.22A2 2 0 0 1 18 13H6a2 2 0 0 1-1.387-.56l-2.306-2.22a1 1 0 0 1 0-1.44l2.306-2.22A2 2 0 0 1 6 6z"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+<symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+<symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+<symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+<symbol id="i-case-upper" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8"/><path d="M4 13h6"/><path d="M15 11h4.5a2 2 0 0 1 0 4H15V7h4a2 2 0 0 1 0 4"/></symbol>
+<symbol id="i-case-lower" viewBox="0 0 24 24"><circle cx="7" cy="12" r="3"/><path d="M10 9v6"/><circle cx="17" cy="12" r="3"/><path d="M14 7v8"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+<symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+<symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+<symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-feather" viewBox="0 0 24 24"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></symbol>
+<symbol id="i-gavel" viewBox="0 0 24 24"><path d="m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></symbol>
+<symbol id="i-thumbs-up" viewBox="0 0 24 24"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></symbol>
+<symbol id="i-thumbs-down" viewBox="0 0 24 24"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></symbol>
+<symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></symbol>
+<symbol id="i-chart-column" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+<symbol id="i-chart-pie" viewBox="0 0 24 24"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/></symbol>
+<symbol id="i-wand" viewBox="0 0 24 24"><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="m3 21 9-9"/><path d="M12.2 6.2 11 5"/></symbol>
+<symbol id="i-pointer" viewBox="0 0 24 24"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+<symbol id="i-mouse-pointer-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
+<symbol id="i-heater" viewBox="0 0 24 24"><path d="M11 8c2-3-2-3 0-6"/><path d="M15.5 8c2-3-2-3 0-6"/><path d="M6 10h.01"/><path d="M6 14h.01"/><path d="M10 16v-4"/><path d="M14 16v-4"/><path d="M18 16v-4"/><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/><path d="M5 20v2"/><path d="M19 20v2"/></symbol>
+<symbol id="i-snowflake" viewBox="0 0 24 24"><path d="m10 20-1.25-2.5L6 18"/><path d="M10 4 8.75 6.5 6 6"/><path d="m14 20 1.25-2.5L18 18"/><path d="m14 4 1.25 2.5L18 6"/><path d="m17 21-3-6h-4"/><path d="m17 3-3 6 1.5 3"/><path d="M2 12h6.5L10 9"/><path d="m20 10-1.5 2 1.5 2"/><path d="M22 12h-6.5L14 15"/><path d="m4 10 1.5 2L4 14"/><path d="m7 21 3-6-1.5-3"/><path d="m7 3 3 6h4"/></symbol>
+<symbol id="i-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7"/><path d="M9.1 11h5.7"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol>
+<symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+<symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></symbol>
+
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#hero" aria-label="Наверх"><i>N</i><b>nomen</b></a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a class="pill" href="#story">Старт</a>
+      <a class="pill" href="#rule">Правило</a>
+      <a class="pill" href="#history">История</a>
+      <a class="pill" href="#numbers">Цифры</a>
+      <a class="pill" href="#why">Зачем</a>
+      <a class="pill" href="#traps">Ловушки</a>
+      <a class="pill" href="#detector">Детектор</a>
+      <a class="pill" href="#video">Видео</a>
+      <a class="pill" href="#practice">Практика</a>
+      <a class="pill" href="#cheat">Шпаргалка</a>
+    </nav>
+    <button class="vbtn" id="vbtn" type="button" aria-label="Выбрать озвучку и диалект" aria-haspopup="dialog"><svg class="ic"><use href="#i-volume-2"/></svg><span id="vbtnL">DE</span></button>
+  </div>
+  <div class="prog" id="prog"></div>
+</header>
+
+<div class="rail" id="rail" aria-hidden="true">
+  <div class="trk" id="trk"></div>
+  <div id="ticks"></div>
+  <button class="thumb" id="thumb" tabindex="-1"><span id="thumbL">n</span><em class="tip" id="thumbTip">das Nomen</em></button>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="hero" data-sec data-l="n" data-w="das Nomen">
+  <div class="wrap">
+    <h2 class="giant" aria-label="Nomen"><span class="lt"><span class="capflip" id="heroCap"><i class="lo">n</i><i class="U">N</i></span></span><span class="lt">o</span><span class="lt">m</span><span class="lt">e</span><span class="lt">n</span></h2>
+    <div class="hero-stage">
+      <div style="position:relative;z-index:3">
+        <h1>Почему в немецком <span>все существительные</span> с большой буквы?</h1>
+        <p class="lede">Объясняю по шагам. История, логика, ловушки. Меньше текста, больше анимаций.</p>
+      </div>
+      <div class="phwrap"><div class="phone" id="phone">
+        <div class="screen">
+          <span class="island"></span>
+          <div class="sbar"><span>9:41</span><span>●●● ▮</span></div>
+          <div class="hello"><span class="av"><svg width="26" height="26"><use href="#face"/></svg></span>Hallo, Shyngys<svg class="ic bell"><use href="#i-bell"/></svg></div>
+          <div class="sch"><span class="on">Nomen</span><span>Artikel</span><span>Kasus</span><span>Verben</span></div>
+          <p class="scr-h">Переписываем по-немецки</p>
+          <div class="ptext" id="ptext"></div>
+          <div class="pcards">
+            <div class="pc" style="background:var(--yel)"><svg class="ic h"><use href="#i-heart"/></svg><b>der Hund</b><strong>Hund</strong><span class="chip"><svg class="ic"><use href="#i-star"/></svg> 4.8</span></div>
+            <div class="pc" style="background:var(--lav)"><svg class="ic h"><use href="#i-heart"/></svg><b>die Freiheit</b><strong>-heit</strong><span class="chip">суффикс</span></div>
+          </div>
+          <div class="tabbar"><span class="on"><svg class="ic"><use href="#i-house"/></svg>Home</span><span><svg class="ic"><use href="#i-search"/></svg>Search</span><span><svg class="ic"><use href="#i-lightbulb"/></svg>Learning</span><span><svg class="ic"><use href="#i-briefcase"/></svg>Test</span><span><svg class="ic"><use href="#i-user"/></svg>Profile</span></div>
+        </div>
+      </div>
+      <svg class="doodle d1" aria-hidden="true"><use href="#dude"/></svg></div>
+      <div style="position:relative;z-index:3">
+        <div class="meta">
+          <span class="chip"><svg class="ic"><use href="#i-graduation-cap"/></svg> A1 и выше</span>
+          <span class="chip"><svg class="ic"><use href="#i-timer"/></svg> 8 минут</span>
+          <span class="chip"><svg class="ic"><use href="#i-youtube"/></svg> 2 видео</span>
+          <span class="chip"><svg class="ic"><use href="#i-pen"/></svg> 2 упражнения</span>
+          <button class="chip vchip" type="button" data-open-voice style="background:#fff;color:var(--ink)"><svg class="ic"><use href="#i-volume-2"/></svg> озвучка DE · AT · CH</button>
+        </div>
+        <div class="row"><a class="btn" style="background:var(--ink);color:var(--yel)" href="#story">Начать <svg class="ic"><use href="#i-arrow-down"/></svg></a><a class="btn line" style="color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)" href="#practice">Сразу к практике</a></div>
+      </div>
+      <svg class="spark" style="right:8%;top:30%" aria-hidden="true"><use href="#star4"/></svg>
+      <svg class="spark" style="left:12%;top:4%;width:16px;height:16px;animation-delay:-1s" aria-hidden="true"><use href="#star4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- wave -->
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet"><path id="wp1" fill="none" d="M-1700,170 C-1300,40 -900,40 -500,170 S 300,300 700,140 S 1300,40 1900,190"/><text fill="#DCC5F7"><textPath href="#wp1" class="tp" startOffset="0">großschreibung · nomen · großschreibung · nomen · großschreibung · nomen · großschreibung · nomen · </textPath></text></svg></div>
+
+<!-- STORY -->
+<section id="story" data-sec data-l="b" data-w="der Brief" style="padding-top:20px">
+  <div class="wrap">
+    <p class="eyebrow"><b>01</b>Старт · История провала</p>
+    <h2 class="h2">Я думал, <em>на меня орут.</em> Через письмо.</h2>
+    <div class="feed">
+      <article class="story">
+        <div class="card y"><svg class="ic heart"><use href="#i-heart"/></svg><h4>Первая неделя в Вене</h4><div class="price">Brief</div><div class="chips"><span class="chip"><svg class="ic"><use href="#i-mail"/></svg> Magistrat</span><span class="chip">Woche 1</span></div></div>
+        <p>Приходит письмо из Magistrat. Открываю. <b>Каждое второе слово с большой буквы.</b></p>
+      </article>
+      <article class="story">
+        <div class="card l"><svg class="ic heart"><use href="#i-heart"/></svg><h4>В английском это капс</h4><div class="price">CAPS?!</div><div class="chips"><span class="chip"><svg class="ic"><use href="#i-star"/></svg> 0 / 10</span><span class="chip">паника</span></div></div>
+        <p>Капс это крик. Перечитал три раза. Ищу, что натворил. Хотя кого я обманываю. Я сразу собрал чемодан.</p>
+      </article>
+      <article class="story">
+        <div class="card o"><svg class="ic heart"><use href="#i-heart"/></svg><h4>Никто не орал</h4><div class="price">Nomen</div><div class="chips"><span class="chip">der · die · das</span><span class="chip">норма</span></div></div>
+        <p>Письмо было про мусор. А большие буквы это <b>просто существительные</b>. Der Brief. Die Wohnung. Das Amt. У немцев так всегда.</p>
+      </article>
+    </div>
+    <p class="swipe">Листай <svg class="ic"><use href="#i-arrow-right"/></svg></p>
+
+    <h3 class="h3">Маршрут. <em style="color:var(--lav);font-style:normal">Четыре этапа.</em></h3>
+    <div class="proc" id="proc">
+      <span class="ln"><i id="procLn"></i></span>
+      <a class="pbox" href="#rule" style="background:var(--yel)"><h3>Понять <small>01–02</small></h3><ul><li>Правило в одну строку</li><li>400 лет истории</li><li>Кто был за, кто против</li></ul></a>
+      <a class="pbox" href="#numbers" style="background:var(--lav)"><h3>Увидеть <small>03–04</small></h3><ul><li>Графики: сколько больших букв</li><li>Зачем это читателю</li><li>Одна буква меняет смысл</li></ul></a>
+      <a class="pbox" href="#traps" style="background:var(--ora)"><h3>Не попасться <small>05–06</small></h3><ul><li>Глагол стал существительным</li><li>heute Abend, но abends</li><li>Детектор существительных</li></ul></a>
+      <a class="pbox" href="#video" style="background:var(--white)"><h3>Закрепить <small>07–09</small></h3><ul><li>Два видео</li><li>Два упражнения с разбором</li><li>Шпаргалка</li></ul></a>
+    </div>
+  </div>
+</section>
+
+<!-- RULE -->
+<section id="rule" data-sec data-l="r" data-w="die Regel">
+  <div class="wrap">
+    <p class="eyebrow"><b>02</b>Правило · Одна строка</p>
+    <h2 class="h2">Существительное? <em>Большая буква.</em> Всегда.</h2>
+    <p class="lede">Не важно, где оно стоит. В начале, в середине, в конце. Смотри, как сканер ищет существительные.</p>
+
+    <div class="scan" id="scan">
+      <div class="scan-top"><span class="eyebrow"><svg class="ic"><use href="#i-search"/></svg>Сканер · 4 предложения</span><span class="pill y" id="scanCount">0 найдено</span></div>
+      <div class="sline" id="sline"></div>
+      <p class="sru" id="sru"></p>
+      <div class="ctrl">
+        <button class="nav2" id="sPrev" aria-label="Назад"><svg class="ic"><use href="#i-arrow-left"/></svg></button>
+        <div class="dots" id="sDots"><i></i><i></i><i></i><i></i></div>
+        <button class="nav2" id="sNext" aria-label="Дальше"><svg class="ic"><use href="#i-arrow-right"/></svg></button>
+        <button class="say" id="sSay" aria-label="Послушать"><svg class="ic"><use href="#i-volume-2"/></svg></button>
+      </div>
+    </div>
+
+    <h3 class="h3">Русский vs немецкий</h3>
+    <div class="lanes">
+      <div class="lane rv"><div class="lh"><span class="flag">RU</span><small style="margin:0">2 большие буквы</small></div><div class="big"><u>Я</u> пью кофе с молоком в <u>В</u>ене.</div><small>Большая только в начале и у имён.</small></div>
+      <div class="lane de2 rv"><div class="lh"><span class="flag">DE</span><small style="margin:0">4 большие буквы</small></div><div class="big"><u>I</u>ch trinke <u>K</u>affee mit <u>M</u>ilch in <u>W</u>ien.</div><small>Плюс каждое существительное. Kaffee и Milch тоже.</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet"><path id="wp2" fill="none" d="M-1700,90 C-1300,230 -900,230 -500,100 S 300,-20 700,150 S 1300,240 1900,80"/><text fill="#F3F07B"><textPath href="#wp2" class="tp" startOffset="0">der Brief · die Wohnung · das Amt · der Kaffee · die Milch · das Brot · der Brief · die Wohnung · das Amt · </textPath></text></svg></div>
+
+<!-- HISTORY -->
+<section id="history" data-sec data-l="g" data-w="die Geschichte" style="padding-top:24px">
+  <div class="wrap">
+    <p class="eyebrow"><b>03</b>История · 400 лет</p>
+    <h2 class="h2">Сначала большая буква была <em class="l">для Бога.</em> Потом для всех.</h2>
+    <p class="lede">Одно предложение едет сквозь века. Листай вниз и смотри, как растут буквы.</p>
+
+    <div class="evo-zone">
+    <div class="evo" id="evo">
+      <div class="lh"><span>Одно предложение</span><span class="yr" id="evoYr">VIII–XV век</span></div>
+      <div class="sent" id="evoSent"></div>
+      <div class="cnt"><svg class="ic"><use href="#i-case-upper"/></svg><span id="evoCnt">0 больших букв</span></div>
+      <div class="bar"><i id="evoBar"></i></div>
+    </div>
+
+    <div class="tl" id="tl">
+      <span class="ln"><i id="tlLn"></i></span>
+      <div class="node" data-stage="0"><span class="dot"><svg class="ic"><use href="#i-scroll"/></svg></span><div class="when">VIII–XV</div><h4>Монахи и пергамент</h4><p>Книги переписывают руками. Почти всё мелкими буквами. Большая только для красоты, в начале главы.</p></div>
+      <div class="node" data-stage="1"><span class="dot"><svg class="ic"><use href="#i-printer"/></svg></span><div class="when">1522</div><h4>Станок и Лютер</h4><p>Лютер переводит Библию, станок печатает тысячи копий. <b>Gott</b> пишут с большой. Из уважения. Немцы называют это Ehrfurcht, благоговение.</p><span class="ex">da gab <u>G</u>ott…</span></div>
+      <div class="node" data-stage="2"><span class="dot"><svg class="ic"><use href="#i-crown"/></svg></span><div class="when">XVI век</div><h4>Начальство</h4><p>Если Богу можно, то и кайзеру. Потом королю. Потом всем важным. Большая буква становится знаком статуса.</p><span class="ex">dem <u>K</u>önig</span></div>
+      <div class="node" data-stage="3"><span class="dot"><svg class="ic"><use href="#i-feather"/></svg></span><div class="when">XVII век</div><h4>Мода расползается</h4><p>Писцы выделяют всё, что кажется им главным. Крестьянин, хлеб. Кто важный, решает каждый сам. Хаос. Грамматики вроде Шоттеля предлагают простое правило: все существительные.</p><span class="ex">dem <u>B</u>auern <u>B</u>rot</span></div>
+      <div class="node" data-stage="4"><span class="dot"><svg class="ic"><use href="#i-book-open"/></svg></span><div class="when">1748</div><h4>Готшед закрепляет</h4><p>Грамматика Иоганна Кристофа Готшеда делает это нормой. Теперь не мода, а правило. Даже вино получает большую букву.</p><span class="ex">und <u>W</u>ein</span></div>
+      <div class="node" data-stage="5"><span class="dot"><svg class="ic"><use href="#i-landmark"/></svg></span><div class="when">1901</div><h4>Берлин и Дуден</h4><p>Орфографическая конференция. Правила словаря Конрада Дудена становятся общими для немецкоязычных стран. Большая буква теперь официально.</p></div>
+      <div class="node" data-stage="6"><span class="dot"><svg class="ic"><use href="#i-gavel"/></svg></span><div class="when">1996</div><h4>Реформа</h4><p>Маленькие буквы для всех обсуждали годами. Не прошло. Реформа сделала наоборот и <b>добавила</b> больших: heute Abend, im Allgemeinen.</p><span class="ex">heute <u>A</u>bend</span></div>
+    </div>
+    </div>
+
+    <h3 class="h3">Кто голосовал <em style="color:var(--yel);font-style:normal">за</em> и <em style="color:var(--ora);font-style:normal">против</em></h3>
+    <div class="pers">
+      <div class="per rv" style="background:var(--lav)"><h4>Мартин Лютер, 1522</h4><span class="face"><svg><use href="#face"/></svg></span><small>Богослов, переводчик Библии</small><span class="vote"><svg class="ic"><use href="#i-thumbs-up"/></svg> За, частично</span><p>Писал Gott с большой из уважения. Остальное как получится. В поздних изданиях его Библии больших букв заметно больше.</p></div>
+      <div class="per rv" style="background:var(--yel)"><h4>Якоб Гримм, 1854</h4><span class="face"><svg><use href="#face"/></svg></span><small>Лингвист, тот самый сказочник</small><span class="vote no"><svg class="ic"><use href="#i-thumbs-down"/></svg> Против</span><p>Считал большие буквы лишними. Писал свой огромный словарь маленькими. Немцы не послушали даже Гримма.</p></div>
+      <div class="per rv" style="background:var(--ora)"><h4>Конрад Дуден, 1880</h4><span class="face"><svg><use href="#face"/></svg></span><small>Учитель, автор словаря</small><span class="vote"><svg class="ic"><use href="#i-thumbs-up"/></svg> За</span><p>Собрал правила в один словарь. Через двадцать лет его словарь стал законом. Сегодня «посмотри в Дудене» значит «посмотри, как правильно».</p></div>
+      <div class="per rv" style="background:var(--white)"><h4>Дания, 1948</h4><span class="face"><svg><use href="#face"/></svg></span><small>Соседи, тоже так писали</small><span class="vote no"><svg class="ic"><use href="#i-thumbs-down"/></svg> Отменили</span><p>Датчане тоже писали существительные с большой. В 1948 году реформа это убрала. Немцы остались почти одни.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers" data-sec data-l="z" data-w="die Zahlen">
+  <div class="wrap">
+    <p class="eyebrow"><b>04</b>Цифры · Графики</p>
+    <h2 class="h2">Один текст. Три языка. <em>Считаем большие буквы.</em></h2>
+    <p class="lede">Я написал короткое письмо арендодателю и перевёл его. Скрипт сам считает буквы прямо на странице.</p>
+    <div class="charts">
+      <div class="panel rv">
+        <h5><svg class="ic"><use href="#i-chart-column"/></svg>Больших букв в одном письме</h5>
+        <div class="tabs" role="group" aria-label="Язык"><button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+        <div class="ctext" id="ctext"></div>
+        <div class="bars" id="bars"></div>
+      </div>
+      <div class="panel rv">
+        <h5><svg class="ic"><use href="#i-chart-pie"/></svg>Почему эти буквы большие · DE</h5>
+        <div class="donut">
+          <div class="ctr"><svg viewBox="0 0 120 120" id="donut"></svg><span id="donutN">0<small>букв</small></span></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <p class="note">Больше половины больших букв дают существительные. Начало предложения на втором месте.</p>
+      </div>
+    </div>
+
+    <h3 class="h3">Кто ещё <em style="color:var(--lav);font-style:normal">так делал</em></h3>
+    <div class="panel rv" style="margin-top:18px">
+      <h5><svg class="ic"><use href="#i-globe"/></svg>Существительные с большой · по языкам</h5>
+      <div class="gantt" id="gantt">
+        <div class="gr"><span>Английский</span><div class="t"><i style="left:28.6%;width:28.6%;background:var(--lav)"><span>XVII–XVIII</span></i></div></div>
+        <div class="gr"><span>Датский</span><div class="t"><i style="left:19%;width:66.3%;background:var(--ora)"><span>до 1948</span></i></div></div>
+        <div class="gr"><span>Немецкий</span><div class="t"><i style="left:19%;width:81%;background:var(--yel)"><span>до сих пор</span></i></div></div>
+        <div class="gr"><span>Люксембург.</span><div class="t"><i style="left:85.7%;width:14.3%;background:var(--white)"><span>да</span></i></div></div>
+      </div>
+      <div class="gaxis"><span></span><div><span style="left:0">1500</span><span style="left:19.05%">1600</span><span style="left:38.1%">1700</span><span style="left:57.14%">1800</span><span style="left:76.19%">1900</span><span style="left:95.24%">2000</span></div></div>
+      <p class="note">Схема. Границы примерные: мода приходила и уходила постепенно.</p>
+    </div>
+    <div class="quote rv">We the <u>P</u>eople of the United States, in <u>O</u>rder to form a more perfect <u>U</u>nion, establish <u>J</u>ustice, insure domestic <u>T</u>ranquility…<small>Конституция США, 1787. Англичане тоже баловались. Потом передумали.</small></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" data-sec data-l="s" data-w="der Sinn">
+  <div class="wrap">
+    <p class="eyebrow"><b>05</b>Зачем · Смысл</p>
+    <h2 class="h2">Большая буква это <em class="l">не крик.</em> Это указатель.</h2>
+    <p class="lede">Немецкое предложение длинное. Глагол уезжает в конец. Большие буквы показывают глазу, где главное.</p>
+    <div class="read rv">
+      <div class="tabs" role="group" aria-label="Режим"><button type="button" data-rm="de" aria-pressed="true">Как у немцев</button><button type="button" data-rm="lo" aria-pressed="false">Всё мелкое</button><button type="button" data-rm="sk" aria-pressed="false">Скелет</button></div>
+      <div class="rtext" id="rtext"></div>
+      <p class="rcap" id="rcap"></p>
+    </div>
+
+    <h3 class="h3">Одна буква. <em style="color:var(--yel);font-style:normal">Другой смысл.</em></h3>
+    <div class="pairs" id="pairs">
+      <div class="tabs" role="group" aria-label="Пример"><button type="button" data-p="0" aria-pressed="true">Floh</button><button type="button" data-p="1" aria-pressed="false">Liebe</button><button type="button" data-p="2" aria-pressed="false">Spinnen</button></div>
+      <div class="pairbox" id="pairbox">
+        <div class="lh"><span class="eyebrow" style="color:var(--ink)"><svg class="ic"><use href="#i-wand"/></svg>Смотри на чёрный маркер</span><button class="say" id="pSay" aria-label="Послушать"><svg class="ic"><use href="#i-volume-2"/></svg></button></div>
+        <div class="psent" id="psent"></div>
+        <span class="flyer" id="flyer"></span>
+        <div class="pmean"><span class="pic" id="pPic"><svg class="ic"><use href="#i-bug"/></svg></span><div><b id="pRu"></b><small id="pWhy"></small></div></div>
+        <div class="row" style="margin-top:14px"><button class="btn sm" style="background:var(--ink);color:var(--yel)" id="pSwap" type="button"><svg class="ic"><use href="#i-rotate-ccw"/></svg> Переключить букву</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true"><svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet"><path id="wp3" fill="none" d="M-1700,170 C-1300,40 -900,40 -500,170 S 300,300 700,140 S 1300,40 1900,190"/><text fill="#EC6F47"><textPath href="#wp3" class="tp" startOffset="0">das Lesen · beim Essen · etwas Neues · alles Gute · heute Abend · das Lesen · beim Essen · etwas Neues · </textPath></text></svg></div>
+
+<!-- TRAPS -->
+<section id="traps" data-sec data-l="f" data-w="die Falle" style="padding-top:24px">
+  <div class="wrap">
+    <p class="eyebrow"><b>06</b>Ловушки · Превращения</p>
+    <h2 class="h2">Глагол надел артикль. <em class="o">Теперь он существительное.</em></h2>
+    <p class="lede">essen это есть. Но beim Essen это «за едой». Перед словом встал артикль, и слово получило большую букву.</p>
+    <div class="fab" id="fab">
+      <h5><svg class="ic"><use href="#i-factory"/></svg>Фабрика · смотри на конвейер</h5>
+      <div class="fcol fin"><span class="fc">essen</span><span class="fc">lesen</span><span class="fc">gut</span><span class="fc">neu</span><span class="fc">schwimmen</span><span class="fc">allgemein</span></div>
+      <div class="mach" id="mach"><div><svg class="ic"><use href="#i-hammer"/></svg>+ сигнал</div></div>
+      <div class="fcol fout"><span class="fc">beim <b>E</b>ssen</span><span class="fc">das <b>L</b>esen</span><span class="fc">alles <b>G</b>ute</span><span class="fc">etwas <b>N</b>eues</span><span class="fc">zum <b>S</b>chwimmen</span><span class="fc">im <b>A</b>llgemeinen</span></div>
+    </div>
+    <p class="eyebrow" style="margin-top:20px"><svg class="ic"><use href="#i-signpost"/></svg>Слова-сигналы. Увидел, значит дальше большая</p>
+    <div class="sig stg"><span>das</span><span>beim</span><span>zum</span><span>im</span><span>vom</span><span>etwas</span><span>nichts</span><span>viel</span><span>wenig</span><span>alles</span></div>
+
+    <h3 class="h3">Большая или маленькая? <em style="color:var(--lav);font-style:normal">Нажми и послушай.</em></h3>
+    <div class="ds">
+      <div class="dscol rv">
+        <h5><svg class="ic"><use href="#i-clock"/></svg>Время</h5>
+        <div class="dsr"><button class="dsb big" data-say="am Montag">am Montag</button><button class="dsb small" data-say="montags">montags</button><small>am + день это существительное. На -s это наречие «по понедельникам».</small></div>
+        <div class="dsr"><button class="dsb big" data-say="heute Abend">heute Abend</button><button class="dsb small" data-say="abends">abends</button><small>После heute, morgen, gestern время суток большое. abends маленькое.</small></div>
+      </div>
+      <div class="dscol rv">
+        <h5><svg class="ic"><use href="#i-languages"/></svg>Языки и прилагательные</h5>
+        <div class="dsr"><button class="dsb big" data-say="auf Deutsch">auf Deutsch</button><button class="dsb small" data-say="die deutsche Sprache">deutsche Sprache</button><small>Язык как предмет большой. Прилагательное перед словом маленькое.</small></div>
+        <div class="dsr"><button class="dsb big" data-say="das Gute">das Gute</button><button class="dsb small" data-say="eine gute Idee">gute Idee</button><small>das Gute это «хорошее» как вещь. gute Idee это просто хорошая идея.</small></div>
+      </div>
+    </div>
+    <div class="siebox">
+      <div class="sie a rv"><svg class="ic big-ic"><use href="#i-briefcase"/></svg><span class="pill dark">Sie</span><b>Können Sie mir helfen?</b><p>Вы можете мне помочь? Вежливо, начальнику.</p></div>
+      <div class="sie b rv"><svg class="ic big-ic" style="color:var(--yel)"><use href="#i-users"/></svg><span class="pill line">sie</span><b>Können sie mir helfen?</b><p>Они могут мне помочь? Одна буква, и ты просишь не начальника, а каких-то «их».</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DETECTOR -->
+<section id="detector" data-sec data-l="d" data-w="der Detektor">
+  <div class="wrap">
+    <p class="eyebrow"><b>07</b>Схема · Детектор</p>
+    <h2 class="h2">Как понять, что слово <em>просит большую букву?</em></h2>
+    <p class="lede">Четыре вопроса по порядку. Слово идёт по схеме, как пользователь по приложению.</p>
+    <div class="flow" id="flow" data-flow='[{"t":"tisch","hit":0,"a":"der Tisch"},{"t":"freiheit","hit":1,"a":"die Freiheit"},{"t":"beim laufen","hit":2,"a":"beim Laufen"},{"t":"können sie…?","hit":3,"a":"Können Sie…?"},{"t":"schnell","hit":4,"a":"schnell","sm":1}]'>
+      <div class="legendf"><span><i style="background:var(--yel)"></i>Старт</span><span><i style="background:var(--lav)"></i>Вопрос</span><span><i style="background:#fff"></i>Большая</span><span><i style="background:var(--coral)"></i>Маленькая</span></div>
+      <div class="fchip"><span class="fq">tisch</span><span class="fa"></span></div>
+      <div class="fn"><div class="fqq"><svg class="ic"><use href="#i-hand"/></svg>Предмет, человек, место, имя?</div><div class="fy"><em>да <svg class="ic"><use href="#i-arrow-right"/></svg></em><span class="res">Большая</span></div></div>
+      <div class="fno">нет</div>
+      <div class="fn"><div class="fqq"><svg class="ic"><use href="#i-search"/></svg>Суффикс -ung, -heit, -keit, -schaft?</div><div class="fy"><em>да <svg class="ic"><use href="#i-arrow-right"/></svg></em><span class="res">Большая</span></div></div>
+      <div class="fno">нет</div>
+      <div class="fn"><div class="fqq"><svg class="ic"><use href="#i-signpost"/></svg>Перед ним das, beim, etwas, alles?</div><div class="fy"><em>да <svg class="ic"><use href="#i-arrow-right"/></svg></em><span class="res">Большая</span></div></div>
+      <div class="fno">нет</div>
+      <div class="fn"><div class="fqq"><svg class="ic"><use href="#i-briefcase"/></svg>Это вежливое Sie, Ihnen?</div><div class="fy"><em>да <svg class="ic"><use href="#i-arrow-right"/></svg></em><span class="res">Большая</span></div></div>
+      <div class="fno">нет</div>
+      <div class="fn else"><span class="res c">Маленькая буква</span></div>
+    </div>
+
+    <h3 class="h3">Суффиксы-<em style="color:var(--yel);font-style:normal">паспорта</em></h3>
+    <p class="lede">Видишь такой хвост, перед тобой существительное. Нажми на квадрат.</p>
+    <div class="pal" id="pal"></div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" data-sec data-l="v" data-w="das Video">
+  <div class="wrap">
+    <p class="eyebrow"><b>08</b>Видео · Носители объясняют</p>
+    <h2 class="h2">Теперь послушай <em class="l">немцев.</em></h2>
+    <p class="lede">Видео на немецком. Включи субтитры. Ты уже знаешь историю, так что поймёшь больше, чем думаешь.</p>
+    <div class="vids">
+      <div class="vcard rv">
+        <div class="vframe" data-yt="9RPHKf9CSLg"><img src="https://i.ytimg.com/vi/9RPHKf9CSLg/hqdefault.jpg" alt="Превью: Warum gibt es Groß- und Kleinschreibung?" loading="lazy"><button class="vplay" type="button" aria-label="Смотреть видео"><i><svg class="ic"><use href="#i-play"/></svg></i></button></div>
+        <div class="vprog"><i></i></div>
+        <div class="vmeta"><div><h4>Warum gibt es Groß- und Kleinschreibung?</h4><small>musstewissen Deutsch · 3 минуты · на немецком</small></div><svg class="ic"><use href="#i-heart"/></svg></div>
+        <p class="vnote">Главное видео. <b>Откуда взялась большая буква</b>, и почему её не отменили. Проверь, услышишь ли ты Лютера.</p>
+        <div class="vwatch"><div><b>Слушай</b>Groß- und Kleinschreibung это «написание с большой и маленькой»</div><div><b>Лови</b>Substantiv и Nomen это одно и то же</div></div>
+      </div>
+      <div class="vcard rv">
+        <div class="vframe" data-yt="aOKXyLaNjSw"><img src="https://i.ytimg.com/vi/aOKXyLaNjSw/hqdefault.jpg" alt="Превью: Substantivierung einfach erklärt" loading="lazy"><button class="vplay" type="button" aria-label="Смотреть видео"><i><svg class="ic"><use href="#i-play"/></svg></i></button></div>
+        <div class="vprog"><i style="transform:scaleX(.05)"></i></div>
+        <div class="vmeta"><div><h4>Substantivierung einfach erklärt</h4><small>musstewissen Deutsch · 5 минут · бонус</small></div><svg class="ic"><use href="#i-heart"/></svg></div>
+        <p class="vnote">Бонус про ловушку №1. <b>Как глагол становится существительным.</b> Тот самый beim Essen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice" data-sec data-l="ü" data-w="die Übung">
+  <div class="wrap">
+    <p class="eyebrow"><b>09</b>Практика · От нас</p>
+    <h2 class="h2">Хватит читать. <em>Твоя очередь.</em></h2>
+
+    <div class="ex letter rv" id="ex1">
+      <div class="exh"><div><h4>Упражнение 1 · Почини письмо</h4><p>Мой знакомый написал письмо хозяйке квартиры. Без единой большой буквы внутри предложений. Нажимай на слова, которым нужна большая буква.</p></div><span class="pill" id="ex1Cnt">0 исправлено</span></div>
+      <div class="paper" id="paper"></div>
+      <div class="exbar"><button class="btn sm" style="background:var(--ink);color:#fff" id="ex1Check" type="button"><svg class="ic"><use href="#i-check"/></svg> Проверить</button><button class="btn sm lav" id="ex1Show" type="button"><svg class="ic"><use href="#i-eye"/></svg> Показать ответ</button><button class="btn sm line" style="color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)" id="ex1Reset" type="button"><svg class="ic"><use href="#i-rotate-ccw"/></svg></button><span class="score" id="ex1Score"></span></div>
+      <div class="expl" id="ex1Expl"></div>
+    </div>
+
+    <h3 class="h3">Упражнение 2 · <em style="color:var(--lav);font-style:normal">Большая или маленькая</em></h3>
+    <div class="quiz rv" id="qz" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- CHEAT -->
+<section id="cheat" data-sec data-l="s" data-w="der Spickzettel">
+  <div class="wrap">
+    <p class="eyebrow"><b>10</b>Шпаргалка · Сделай скрин</p>
+    <h2 class="h2">Весь гайд <em>на одном экране.</em></h2>
+    <div class="cheat stg">
+      <div class="ch"><span class="ci" style="background:var(--yel)"><svg class="ic"><use href="#i-case-upper"/></svg></span><b>Главное</b><span>Существительное → <i>всегда</i> большая. Где бы ни стояло</span></div>
+      <div class="ch"><span class="ci" style="background:var(--lav)"><svg class="ic"><use href="#i-hand"/></svg></span><b>Тест</b><span>Подходит der, die, das → большая</span></div>
+      <div class="ch"><span class="ci" style="background:var(--ora)"><svg class="ic"><use href="#i-search"/></svg></span><b>Суффиксы</b><span>-ung -heit -keit -schaft -nis -tum -chen -ling -tät</span></div>
+      <div class="ch"><span class="ci" style="background:#fff"><svg class="ic"><use href="#i-factory"/></svg></span><b>Превращение</b><span>das Lesen, beim Essen, etwas <i>N</i>eues, alles <i>G</i>ute</span></div>
+      <div class="ch"><span class="ci" style="background:var(--yel)"><svg class="ic"><use href="#i-clock"/></svg></span><b>Время</b><span>heute <i>A</i>bend, am <i>M</i>ontag. Но abends, montags</span></div>
+      <div class="ch"><span class="ci" style="background:var(--lav)"><svg class="ic"><use href="#i-languages"/></svg></span><b>Языки</b><span>auf <i>D</i>eutsch. Но die deutsche Sprache</span></div>
+      <div class="ch"><span class="ci" style="background:var(--ora)"><svg class="ic"><use href="#i-briefcase"/></svg></span><b>Вежливость</b><span><i>S</i>ie, <i>I</i>hnen, <i>I</i>hr. Но du, dir, sie (они)</span></div>
+      <div class="ch"><span class="ci" style="background:#fff"><svg class="ic"><use href="#i-scroll"/></svg></span><b>История</b><span>Лютер → Готшед → Дуден. 400 лет привычки</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="outro" id="outro" data-sec data-l="e" data-w="das Ende">
+  <div class="wrap">
+    <h2 class="giant" aria-label="Danke fürs Lesen"><span class="w2"><span class="capflip" id="oc1"><i class="lo">d</i><i class="U">D</i></span>anke</span><span class="w2">fürs</span><span class="w2"><span class="capflip" id="oc2"><i class="lo">l</i><i class="U">L</i></span>esen</span></h2>
+    <p class="lede">Заметил? Danke большое, потому что начало. Lesen большое, потому что после fürs глагол стал существительным. <b>Ты это уже видишь.</b></p>
+    <p class="lede" style="font-size:17px;color:var(--mute)">Через месяц начнёшь писать «Кофе» с большой и по-русски. Это нормально. Наверное.</p>
+    <div class="row"><a class="btn" href="#practice"><svg class="ic"><use href="#i-rotate-ccw"/></svg> Ещё раз упражнения</a><a class="btn line" href="#hero"><svg class="ic"><use href="#i-arrow-up"/></svg> Наверх</a></div>
+  </div>
+</section>
+<div class="wave" aria-hidden="true" style="margin-bottom:0"><svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid meet"><path id="wp4" fill="none" d="M-1700,90 C-1300,230 -900,230 -500,100 S 300,-20 700,150 S 1300,240 1900,80"/><text fill="#DCC5F7"><textPath href="#wp4" class="tp" startOffset="0">danke fürs Lesen · bis bald · danke fürs Lesen · bis bald · danke fürs Lesen · bis bald · </textPath></text></svg></div>
+</main>
+
+<div class="sheet-bg" id="sheetBg" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetH" hidden>
+  <div class="grab"></div>
+  <div class="sh-top"><h3 id="sheetH">Озвучка</h3><button class="close" id="sheetX" type="button" aria-label="Закрыть"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <p class="sh-l"><span>Диалект</span></p>
+  <div class="regs" id="regs">
+    <button class="reg" type="button" data-r="de-DE" aria-pressed="true"><span class="flg de"></span><b>Германия</b><em>Guten Tag!</em><small data-n></small></button>
+    <button class="reg" type="button" data-r="de-AT" aria-pressed="false"><span class="flg at"></span><b>Австрия</b><em>Grüß Gott!</em><small data-n></small></button>
+    <button class="reg" type="button" data-r="de-CH" aria-pressed="false"><span class="flg ch"></span><b>Швейцария</b><em>Grüezi!</em><small data-n></small></button>
+  </div>
+  <p class="sh-l"><span>Голос</span><span id="vcount"></span></p>
+  <div class="vlist" id="vlist"></div>
+  <p class="sh-l"><span>Скорость</span></p>
+  <div class="tabs" role="group" aria-label="Скорость" id="rates"><button type="button" data-rate=".7" aria-pressed="false">Медленно</button><button type="button" data-rate=".9" aria-pressed="true">Нормально</button><button type="button" data-rate="1.1" aria-pressed="false">Быстро</button></div>
+  <button class="btn" id="vtest" type="button"><svg class="ic"><use href="#i-volume-2"/></svg> Проверить голос</button>
+  <p class="sh-note" id="vnote"></p>
+</div>
+
+<footer><div class="wrap"><span>Гайд · Großschreibung · 2026</span><span>Шынгыс · немецкий без воды</span></div></footer>
+
+<script>
+function nomenInit(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = window.gsap && window.ScrollTrigger ? window.gsap : null;
+  if(G){ try{ G.registerPlugin(ScrollTrigger); window.SplitText && G.registerPlugin(SplitText); window.MotionPathPlugin && G.registerPlugin(MotionPathPlugin); }catch(e){ G = null; } }
+  if(G){ document.documentElement.classList.add('gs'); ScrollTrigger.config({ignoreMobileResize:true}); }
+  var MP = G && window.MotionPathPlugin, ST = G && window.SplitText;
+  function $(s,r){ return (r||document).querySelector(s); }
+  function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
+  function cap(w){ return w.charAt(0).toUpperCase() + w.slice(1); }
+  function flipHTML(w, id){ var f = w.charAt(0); return '<span class="capflip"'+(id?' id="'+id+'"':'')+'><i class="lo">'+f+'</i><i class="U">'+f.toUpperCase()+'</i></span>'+w.slice(1); }
+  function whenVisible(el, on, off, th){
+    if(!el) return;
+    if(!('IntersectionObserver' in window)){ on(); return; }
+    new IntersectionObserver(function(es){ es.forEach(function(en){ en.isIntersecting ? on() : (off && off()); }); }, {threshold:th||.25}).observe(el);
+  }
+
+  /* ---------- speech ---------- */
+  var tts = 'speechSynthesis' in window, deVoice = null, deVoices = [];
+  if(!tts) document.documentElement.classList.add('no-tts');
+  var VS = {region:'de-DE', voice:'', rate:.9};
+  try{ var sv = JSON.parse(localStorage.getItem('nomenVoice') || 'null'); if(sv && sv.region) VS = {region:sv.region, voice:sv.voice || '', rate:+sv.rate || .9}; }catch(e){}
+  function saveVS(){ try{ localStorage.setItem('nomenVoice', JSON.stringify(VS)); }catch(e){} }
+  function normLang(l){ return (l || '').replace('_','-').toLowerCase(); }
+  function pickVoice(){
+    try{
+      deVoices = speechSynthesis.getVoices().filter(function(x){ return /^de/i.test(x.lang); });
+      var r = VS.region.toLowerCase();
+      deVoice = deVoices.find(function(x){ return x.name === VS.voice; })
+        || deVoices.find(function(x){ return normLang(x.lang) === r; })
+        || deVoices.find(function(x){ return normLang(x.lang) === 'de-de'; })
+        || deVoices[0] || null;
+    }catch(e){}
+    if(window.__renderVoices) __renderVoices();
+  }
+  if(tts){ pickVoice(); try{ speechSynthesis.addEventListener ? speechSynthesis.addEventListener('voiceschanged', pickVoice) : (speechSynthesis.onvoiceschanged = pickVoice); }catch(e){} setTimeout(pickVoice, 700); }
+  function say(text, btn){
+    if(!tts || !text) return;
+    try{
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text); u.lang = deVoice ? deVoice.lang : VS.region; u.rate = VS.rate; if(deVoice) u.voice = deVoice;
+      if(btn){ btn.classList.add('on'); u.onend = u.onerror = function(){ btn.classList.remove('on'); }; }
+      speechSynthesis.speak(u);
+    }catch(e){}
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-say]'); if(!b) return;
+    say(b.dataset.say, b.classList.contains('say') ? b : null);
+    if(G && !reduce) G.fromTo(b, {scale:.88, rotation:-4}, {scale:1, rotation:0, duration:.6, ease:'elastic.out(1.1,.4)'});
+  });
+
+  /* ---------- voice & dialect picker ---------- */
+  (function(){
+    var sheet = $('#sheet'), bg = $('#sheetBg'), list = $('#vlist'), note = $('#vnote'), lastFocus = null;
+    var GREET = {'de-DE':'Guten Tag! Der Gefangene floh.', 'de-AT':'Grüß Gott! Der Gefangene floh.', 'de-CH':'Grüezi! Der Gefangene floh.'};
+    var NAME = {'de-DE':'немецкий', 'de-AT':'австрийский', 'de-CH':'швейцарский'};
+    function label(){ $('#vbtnL').textContent = VS.region.slice(3); }
+    window.__renderVoices = function(){
+      label();
+      $$('.reg', sheet).forEach(function(b){
+        var r = b.dataset.r.toLowerCase(), n = deVoices.filter(function(x){ return normLang(x.lang) === r; }).length;
+        b.setAttribute('aria-pressed', b.dataset.r === VS.region); $('[data-n]', b).textContent = n ? n + ' ' + (n === 1 ? 'голос' : n < 5 ? 'голоса' : 'голосов') : 'нет голоса';
+      });
+      $$('[data-rate]', sheet).forEach(function(b){ b.setAttribute('aria-pressed', Math.abs(+b.dataset.rate - VS.rate) < .01); });
+      $('#vcount').textContent = deVoices.length ? deVoices.length + ' на устройстве' : '';
+      if(!deVoices.length){ list.innerHTML = '<div class="vempty">Немецких голосов на устройстве не нашлось. Озвучка пойдёт голосом по умолчанию. На iPhone голоса добавляются в Настройки → Универсальный доступ → Устное содержание → Голоса → Немецкий.</div>'; }
+      else {
+        var sorted = deVoices.slice().sort(function(a, b){ var ra = normLang(a.lang) === VS.region.toLowerCase() ? 0 : 1, rb = normLang(b.lang) === VS.region.toLowerCase() ? 0 : 1; return ra - rb || a.name.localeCompare(b.name); });
+        list.innerHTML = sorted.map(function(v){ var on = deVoice && v.name === deVoice.name; return '<button type="button" class="vopt" data-v="'+v.name.replace(/"/g,'&quot;')+'" aria-pressed="'+on+'"><svg class="ic"><use href="#i-check"/></svg>'+v.name.replace(/\s*\((German|Deutsch)[^)]*\)+\s*$/i,'').replace(/</g,'&lt;')+'<small>'+normLang(v.lang).slice(3).toUpperCase()+'</small></button>'; }).join('');
+      }
+      var has = deVoices.some(function(x){ return normLang(x.lang) === VS.region.toLowerCase(); });
+      note.innerHTML = has || !deVoices.length ? 'Голоса берутся из твоего телефона или браузера. Выбор сохраняется для этой страницы.' : 'Отдельного голоса с ' + NAME[VS.region] + ' акцентом на этом устройстве нет. Читаем голосом <b>' + (deVoice ? deVoice.name : 'по умолчанию') + '</b>. Добавить голос можно в настройках речи системы.';
+    };
+    function open(){
+      lastFocus = document.activeElement; bg.hidden = false; sheet.hidden = false; pickVoice();
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ bg.classList.add('open'); sheet.classList.add('open'); $('#sheetX').focus({preventScroll:true}); }); });
+    }
+    function close(){
+      bg.classList.remove('open'); sheet.classList.remove('open');
+      setTimeout(function(){ bg.hidden = true; sheet.hidden = true; }, 420);
+      if(lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
+    }
+    $('#vbtn').onclick = open;
+    $$('[data-open-voice]').forEach(function(b){ b.onclick = open; });
+    $('#sheetX').onclick = close; bg.onclick = close;
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !sheet.hidden) close(); });
+    $$('.reg', sheet).forEach(function(b){ b.onclick = function(){ VS.region = b.dataset.r; VS.voice = ''; saveVS(); pickVoice(); say(GREET[VS.region]); }; });
+    list.addEventListener('click', function(e){ var b = e.target.closest('.vopt'); if(!b) return; VS.voice = b.dataset.v; saveVS(); pickVoice(); say(GREET[VS.region]); });
+    $$('[data-rate]', sheet).forEach(function(b){ b.onclick = function(){ VS.rate = +b.dataset.rate; saveVS(); __renderVoices(); say(GREET[VS.region]); }; });
+    $('#vtest').onclick = function(){ say(GREET[VS.region], null); };
+    __renderVoices();
+  })();
+
+  /* ---------- hero ---------- */
+  var heroCap = $('#heroCap');
+  setTimeout(function(){ heroCap.classList.add('up'); }, reduce ? 0 : 1100);
+  var PT = [
+    {w:['ich','trinke','kaffee','mit','milch.'], n:[2,4], ru:'Я пью кофе с молоком.'},
+    {w:['der','hund','schläft','auf','dem','sofa.'], n:[1,5], ru:'Собака спит на диване.'},
+    {w:['morgen','fahre','ich','nach','wien.'], n:[4], ru:'Завтра еду в Вену.'}
+  ];
+  (function(){
+    var box = $('#ptext'), k = 0, t = null;
+    function render(p){
+      box.innerHTML = p.w.map(function(w,i){ return '<span class="w'+(p.n.indexOf(i)>-1?' nn':'')+'" data-i="'+i+'">'+flipHTML(w)+'</span>'; }).join('') + '<small>'+p.ru+'</small>';
+    }
+    function cycle(){
+      var p = PT[k]; k = (k+1) % PT.length; render(p);
+      var ws = $$('.w', box);
+      setTimeout(function(){ $('.capflip', ws[0]).classList.add('up'); }, 500);
+      p.n.forEach(function(i, j){ setTimeout(function(){ ws[i].classList.add('n'); $('.capflip', ws[i]).classList.add('up'); }, 1100 + j*500); });
+    }
+    render(PT[0]); $$('.capflip', box).forEach(function(c, i){ if(i===0 || PT[0].n.indexOf(i)>-1){ c.classList.add('up'); } }); PT[0].n.forEach(function(i){ $$('.w', box)[i].classList.add('n'); });
+    if(!reduce) whenVisible($('#phone'), function(){ if(t) return; k = 1; t = setInterval(cycle, 3800); }, function(){ clearInterval(t); t = null; });
+  })();
+
+  /* ---------- scanner ---------- */
+  var SC = [
+    {w:['ich','trinke','kaffee','mit','milch.'], tag:{0:'start',2:'noun',4:'noun'}, ru:'Я пью кофе с молоком. Kaffee и Milch существительные.'},
+    {w:['der','hund','schläft','auf','dem','sofa.'], tag:{0:'start',1:'noun',5:'noun'}, ru:'Собака спит на диване. Der с большой только потому, что начало.'},
+    {w:['morgen','fahre','ich','mit','dem','zug','nach','wien.'], tag:{0:'start',5:'noun',7:'noun'}, ru:'Завтра еду на поезде в Вену. Город тоже существительное.'},
+    {w:['beim','essen','spricht','man','nicht.'], tag:{0:'start',1:'subst'}, ru:'За едой не разговаривают. Essen был глаголом. Подробности в ловушках.'}
+  ];
+  var LBL = {start:'НАЧАЛО', noun:'NOMEN', subst:'БЫЛ ГЛАГОЛ'};
+  (function(){
+    var line = $('#sline'), ru = $('#sru'), cnt = $('#scanCount'), dots = $$('#sDots i'), si = 0, timers = [], auto = null, started = false;
+    function clear(){ timers.forEach(clearTimeout); timers = []; }
+    function draw(i, instant){
+      clear(); si = (i + SC.length) % SC.length; var s = SC[si], found = 0;
+      line.innerHTML = s.w.map(function(w, j){ return '<span class="sw" data-j="'+j+'">'+flipHTML(w)+'</span>'; }).join('');
+      ru.textContent = ''; cnt.textContent = '0 найдено';
+      dots.forEach(function(d, k){ d.classList.toggle('on', k <= si); });
+      $('#sSay').dataset.say = s.w.map(function(w, j){ return s.tag[j] ? cap(w) : w; }).join(' ');
+      var ws = $$('.sw', line);
+      ws.forEach(function(el, j){
+        function mark(){
+          ws.forEach(function(x){ x.classList.remove('scan-on'); });
+          var t = s.tag[j];
+          if(t){ el.classList.add(t === 'start' ? 'start' : t); el.dataset.t = LBL[t]; $('.capflip', el).classList.add('up'); if(t !== 'start'){ found++; cnt.textContent = found + ' найдено'; }
+            if(G && !instant && !reduce) G.fromTo(el, {scale:1.25, rotation:-6}, {scale:1, rotation:0, duration:.6, ease:'elastic.out(1,.45)'}); }
+          else { el.classList.add('dim'); }
+        }
+        if(instant){ mark(); }
+        else {
+          timers.push(setTimeout(function(){ ws.forEach(function(x){ x.classList.remove('scan-on'); }); el.classList.add('scan-on'); }, 300 + j*520));
+          timers.push(setTimeout(mark, 300 + j*520 + 300));
+        }
+      });
+      var total = s.w.length*520 + 600;
+      if(instant){ ru.textContent = s.ru; } else timers.push(setTimeout(function(){ ws.forEach(function(x){ x.classList.remove('scan-on'); }); ru.textContent = s.ru; }, total));
+      return total;
+    }
+    function play(i){ clearInterval(auto); var d = draw(i); auto = setTimeout(function next(){ var dd = draw(si+1); auto = setTimeout(next, dd + 2200); }, d + 2200); }
+    function stop(){ clearTimeout(auto); clearInterval(auto); }
+    $('#sNext').onclick = function(){ stop(); draw(si+1); };
+    $('#sPrev').onclick = function(){ stop(); draw(si-1); };
+    draw(0, true);
+    if(!reduce) whenVisible($('#scan'), function(){ if(started) return; started = true; play(0); }, function(){ if(started){ stop(); clear(); started = false; draw(si, true); } });
+  })();
+
+  /* ---------- history evolution ---------- */
+  var EV = [['da',1],['gab',99],['gott',1],['heute',99],['abend',6],['dem',99],['könig',2],['und',99],['dem',99],['bauern',3],['brot',3],['und',99],['wein.',4]];
+  var YR = ['VIII–XV век','1522 · Лютер','XVI век','XVII век','1748 · Готшед','1901 · Берлин','1996 · реформа'];
+  var evoSent = $('#evoSent');
+  evoSent.innerHTML = EV.map(function(e){ return '<span class="ew">'+flipHTML(e[0])+'</span>'; }).join('');
+  var evoFlips = $$('.capflip', evoSent), stage = -1;
+  function setStage(s){
+    if(s === stage) return; stage = s; var n = 0;
+    EV.forEach(function(e, i){ var on = s >= e[1]; if(on) n++; var was = evoFlips[i].classList.contains('up'); evoFlips[i].classList.toggle('up', on);
+      if(on && !was && G && !reduce) G.fromTo(evoFlips[i], {scale:1.6}, {scale:1, duration:.6, ease:'back.out(3)'}); });
+    $('#evoYr').textContent = YR[s]; $('#evoCnt').textContent = n + ' ' + (n===1?'большая буква':n>1&&n<5?'большие буквы':'больших букв') + (s>=5?' · официально':'');
+    $('#evoBar').style.width = Math.round(n/7*100) + '%';
+    $$('#tl .node').forEach(function(nd){ nd.classList.toggle('on', +nd.dataset.stage <= s); });
+  }
+  setStage(0);
+  if('IntersectionObserver' in window){
+    var nio = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting) setStage(+en.target.dataset.stage); }); }, {rootMargin:'-55% 0px -40% 0px'});
+    $$('#tl .node').forEach(function(nd){ nio.observe(nd); });
+  } else setStage(6);
+
+  /* ---------- numbers charts ---------- */
+  var TX = {
+    de:'Am Montag schreibe ich meinem Vermieter einen Brief. Die Heizung in der Küche funktioniert seit einer Woche nicht. Beim Kochen trage ich eine Jacke und eine Mütze. Können Sie bitte morgen einen Techniker schicken? Vielen Dank und liebe Grüße aus Wien.',
+    en:'On Monday I am writing my landlord a letter. The heating in the kitchen has not worked for a week. When I cook, I wear a jacket and a hat. Could you please send a technician tomorrow? Many thanks and best wishes from Vienna.',
+    ru:'В понедельник я пишу арендодателю письмо. Отопление на кухне не работает уже неделю. Когда готовлю, сижу в куртке и шапке. Не могли бы Вы завтра прислать техника? Большое спасибо и привет из Вены.'
+  };
+  function capsOf(t){ return t.split(/\s+/).filter(function(w){ var c = w.replace(/^[^\wÀ-ÿА-яЁё]+/,'').charAt(0); return c && c !== c.toLowerCase(); }).length; }
+  function wordsOf(t){ return t.split(/\s+/).length; }
+  var LC = {de:'var(--yel)', en:'var(--lav)', ru:'var(--ora)'}, maxC = Math.max(capsOf(TX.de), capsOf(TX.en), capsOf(TX.ru));
+  $('#bars').innerHTML = ['de','en','ru'].map(function(l){ var c = capsOf(TX[l]); return '<div class="bar2"><span>'+l.toUpperCase()+'</span><div class="t"><i data-s="'+(c/maxC)+'" style="background:'+LC[l]+';transform:scaleX('+(c/maxC)+')"></i></div><b>'+c+'</b></div>'; }).join('');
+  function showText(l){
+    $('#ctext').innerHTML = TX[l].split(' ').map(function(w){ var c = w.replace(/^[^\wÀ-ÿА-яЁё]+/,'').charAt(0); return c && c !== c.toLowerCase() ? '<mark>'+w+'</mark>' : w; }).join(' ') + '<br><span class="mute" style="font-size:13px">' + capsOf(TX[l]) + ' из ' + wordsOf(TX[l]) + ' слов с большой</span>';
+    $$('[data-lang]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang === l); });
+  }
+  $$('[data-lang]').forEach(function(b){ b.onclick = function(){ showText(b.dataset.lang); }; });
+  showText('de');
+  var barsDone = false;
+  if(G && !reduce){ $$('#bars i').forEach(function(i){ i.style.transform = 'scaleX(0)'; }); }
+  whenVisible($('#bars'), function(){ if(barsDone) return; barsDone = true; $$('#bars i').forEach(function(i, k){ setTimeout(function(){ i.style.transform = 'scaleX('+i.dataset.s+')'; }, k*180); }); });
+  // donut: reasons for capitals in the German letter
+  var R = [
+    {k:'Существительные', n:['Montag','Vermieter','Brief.','Heizung','Küche','Woche','Jacke','Mütze.','Techniker','Dank','Grüße'], c:'#F3F07B'},
+    {k:'Начало предложения', n:['Am','Die','Beim','Können','Vielen'], c:'#DCC5F7'},
+    {k:'Глагол стал сущ.', n:['Kochen'], c:'#EC6F47'},
+    {k:'Вежливое Sie', n:['Sie'], c:'#FFFFFF'},
+    {k:'Город', n:['Wien.'], c:'#F0968B'}
+  ];
+  var tot = R.reduce(function(a, r){ return a + r.n.length; }, 0), C = 2*Math.PI*44, acc = 0;
+  $('#donut').innerHTML = '<circle cx="60" cy="60" r="44" stroke="#2a2a2a"/>' + R.map(function(r){ var len = r.n.length/tot*C, s = '<circle cx="60" cy="60" r="44" stroke="'+r.c+'" stroke-dasharray="'+len+' '+(C-len)+'" stroke-dashoffset="'+(-acc)+'" data-len="'+len+'"/>'; acc += len; return s; }).join('');
+  $('#legend').innerHTML = R.map(function(r){ return '<div><i style="background:'+r.c+'"></i>'+r.k+'<b>'+r.n.length+'</b></div>'; }).join('');
+  $('#donutN').innerHTML = tot + '<small>больших<br>букв</small>';
+  if(G && !reduce){
+    var dc = $$('#donut circle').slice(1);
+    dc.forEach(function(c){ c.setAttribute('stroke-dasharray', '0 '+C); });
+    ScrollTrigger.create({trigger:'#donut', start:'top 85%', once:true, onEnter:function(){
+      dc.forEach(function(c, i){ var o = {v:0}, L = +c.dataset.len; G.to(o, {v:L, duration:.8, delay:i*.25, ease:'power2.out', onUpdate:function(){ c.setAttribute('stroke-dasharray', o.v+' '+(C-o.v)); }}); });
+      var o2 = {v:0}; G.to(o2, {v:tot, duration:1.4, ease:'power2.out', onUpdate:function(){ $('#donutN').innerHTML = Math.round(o2.v) + '<small>больших<br>букв</small>'; }});
+    }});
+    G.from('#gantt i', {scaleX:0, duration:1, ease:'power3.out', stagger:.15, scrollTrigger:{trigger:'#gantt', start:'top 85%', once:true}});
+  }
+
+  /* ---------- readability ---------- */
+  var RT = 'Gestern habe ich in der Bäckerei ein Brot, zwei Brezeln und einen Kaffee gekauft. Die Verkäuferin hat mir noch ein Stück Kuchen geschenkt.';
+  var NOUNS = ['Bäckerei','Brot,','Brezeln','Kaffee','Verkäuferin','Stück','Kuchen'];
+  var RC = {de:'Глаз прыгает по большим буквам: Bäckerei, Brot, Kaffee. Смысл виден раньше, чем дочитал.', lo:'Всё одинаковое. Приходится читать каждое слово, чтобы найти главное. Немцу так читать медленнее.', sk:'Оставили только существительные. История всё равно понятна: пекарня, хлеб, кофе, продавщица, пирог.'};
+  function readMode(m){
+    var rt = $('#rtext');
+    rt.innerHTML = RT.split(' ').map(function(w, i){ var isN = NOUNS.indexOf(w) > -1; var out = (m === 'lo') ? w.toLowerCase() : w; return '<span'+(isN?' class="nn"':'')+'>'+out+'</span>'; }).join(' ');
+    rt.classList.toggle('skel', m === 'sk');
+    $('#rcap').textContent = RC[m];
+    $$('[data-rm]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.rm === m); });
+    if(G && !reduce) G.from($$('span', rt), {y:8, duration:.4, stagger:.012, ease:'power2.out'});
+  }
+  $$('[data-rm]').forEach(function(b){ b.onclick = function(){ readMode(b.dataset.rm); }; });
+  readMode('de');
+
+  /* ---------- meaning pairs with flying marker ---------- */
+  var PR = [
+    {w:['Der','gefangene','floh.'], A:[0,2], B:[0,1], ra:'Пойманная блоха.', rb:'Заключённый сбежал.', wa:'Floh с большой это блоха. gefangene просто прилагательное.', wb:'Gefangene стал существительным: заключённый. floh маленькое, это глагол «сбежал».', ia:'bug', ib:'footprints'},
+    {w:['Er','hat','in','Berlin','liebe','genossen.'], A:[0,3,5], B:[0,3,4], ra:'У него в Берлине милые товарищи.', rb:'В Берлине он наслаждался любовью.', wa:'Genossen с большой это товарищи. liebe маленькое, прилагательное «милые».', wb:'Liebe с большой это любовь. genossen маленькое, глагол «наслаждался».', ia:'users', ib:'heart'},
+    {w:['Die','spinnen!'], A:[0,1], B:[0], ra:'Пауки!', rb:'Они чокнутые!', wa:'Spinnen с большой это пауки, die Spinne.', wb:'spinnen маленькое это глагол. «Die spinnen!» значит «они с ума сошли».', ia:'bug', ib:'laugh'}
+  ];
+  (function(){
+    var box = $('#pairbox'), ps = $('#psent'), fly = $('#flyer'), pi = 0, state = 'A', t = null, busy = false;
+    function render(){
+      var p = PR[pi], set = p[state];
+      ps.innerHTML = p.w.map(function(w, i){ return '<span class="pw">'+flipHTML(w.toLowerCase())+'</span>'; }).join('');
+      $$('.capflip', ps).forEach(function(c, i){ c.classList.toggle('up', set.indexOf(i) > -1); });
+      $('#pRu').textContent = state === 'A' ? p.ra : p.rb; $('#pWhy').textContent = state === 'A' ? p.wa : p.wb;
+      $('#pPic use').setAttribute('href', '#i-' + (state === 'A' ? p.ia : p.ib));
+      $('#pSay').dataset.say = p.w.map(function(w, i){ return set.indexOf(i) > -1 ? cap(w.toLowerCase()) : w.toLowerCase(); }).join(' ');
+      $$('[data-p]').forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.p === pi); });
+    }
+    function swap(){
+      if(busy) return; var p = PR[pi], from = p[state], to = p[state === 'A' ? 'B' : 'A'];
+      var lose = from.filter(function(i){ return to.indexOf(i) < 0; })[0], gain = to.filter(function(i){ return from.indexOf(i) < 0; })[0];
+      var flips = $$('.capflip', ps), next = state === 'A' ? 'B' : 'A';
+      function finish(){ state = next; render(); busy = false; }
+      if(!G || !MP || reduce || lose === undefined){
+        if(lose !== undefined) flips[lose].classList.remove('up'); if(gain !== undefined) flips[gain].classList.add('up');
+        setTimeout(finish, 650); busy = true; return;
+      }
+      busy = true;
+      var bb = box.getBoundingClientRect(), a = flips[lose].getBoundingClientRect(), b = gain !== undefined ? flips[gain].getBoundingClientRect() : null;
+      var ax = a.left - bb.left + a.width/2 - 17, ay = a.top - bb.top - 50;
+      G.set(fly, {x:ax, y:ay, opacity:1, scale:.4, rotation:0});
+      var tl = G.timeline({onComplete:finish});
+      tl.to(fly, {scale:1, duration:.25, ease:'back.out(3)'})
+        .add(function(){ flips[lose].classList.remove('up'); });
+      if(b){
+        var bx = b.left - bb.left + b.width/2 - 17, by = b.top - bb.top - 50;
+        tl.to(fly, {motionPath:{path:[{x:ax,y:ay},{x:(ax+bx)/2, y:Math.min(ay,by) - 70},{x:bx,y:by}], curviness:1.4}, rotation:360, duration:1, ease:'power2.inOut'}, '+=0.15')
+          .add(function(){ flips[gain].classList.add('up'); G.fromTo(flips[gain], {scale:1.6}, {scale:1, duration:.6, ease:'back.out(3)'}); })
+          .to(fly, {scale:.3, opacity:0, duration:.3});
+      } else {
+        tl.to(fly, {y:ay - 80, rotation:200, opacity:0, duration:.8, ease:'power2.in'});
+      }
+      tl.add(function(){}, '+=0.25');
+    }
+    $('#pSwap').onclick = function(){ clearInterval(t); t = null; swap(); };
+    $$('[data-p]').forEach(function(b){ b.onclick = function(){ clearInterval(t); t = null; pi = +b.dataset.p; state = 'A'; render(); }; });
+    render();
+    if(!reduce) whenVisible(box, function(){ if(t) return; t = setInterval(swap, 3600); }, function(){ clearInterval(t); t = null; });
+  })();
+
+  /* ---------- factory ---------- */
+  (function(){
+    var ins = $$('#fab .fin .fc'), outs = $$('#fab .fout .fc'), mach = $('#mach'), i = 0, t = null;
+    outs.forEach(function(o){ o.classList.add('on'); });
+    function tick(){
+      if(i === 0){ ins.forEach(function(x){ x.classList.remove('go'); }); outs.forEach(function(x){ x.classList.remove('on'); }); }
+      ins[i].classList.add('go'); var k = i;
+      setTimeout(function(){ mach.classList.remove('work'); void mach.offsetWidth; mach.classList.add('work'); }, 380);
+      setTimeout(function(){ outs[k].classList.add('on'); if(G) G.fromTo(outs[k], {scale:.6}, {scale:1, duration:.6, ease:'back.out(3)'}); }, 720);
+      i = (i+1) % ins.length;
+    }
+    if(!reduce) whenVisible($('#fab'), function(){ if(t) return; setTimeout(tick, 300); t = setInterval(tick, 1400); }, function(){ clearInterval(t); t = null; });
+  })();
+
+  /* ---------- detector flow ---------- */
+  (function(el){
+    var scen = JSON.parse(el.dataset.flow), nodes = $$('.fn', el), nos = $$('.fno', el), fq = $('.fq', el), fa = $('.fa', el), si = 0, timers = [], running = false;
+    function clear(){ timers.forEach(clearTimeout); timers = []; }
+    function reset(){ nodes.forEach(function(n){ n.classList.remove('chk','hit','miss'); }); nos.forEach(function(n){ n.classList.remove('on'); }); fa.className = 'fa'; fa.textContent = ''; }
+    function resolve(s){
+      nodes[s.hit].classList.add('hit'); fa.textContent = '→ ' + s.a; fa.classList.add('on'); if(s.sm) fa.classList.add('sm');
+      var r = $('.res', nodes[s.hit]); if(G && r && !reduce) G.fromTo(r, {scale:.5, rotation:12}, {scale:1.1, rotation:-3, duration:.6, ease:'elastic.out(1,.45)'});
+    }
+    function run(){
+      reset(); var s = scen[si]; fq.textContent = s.t;
+      if(G) G.fromTo(fq, {y:-16, rotation:-4, scale:.9}, {y:0, rotation:0, scale:1, duration:.5, ease:'back.out(2.5)'});
+      for(var i=0;i<=s.hit;i++){ (function(i){ timers.push(setTimeout(function(){
+        nodes[i].classList.add('chk');
+        if(i < s.hit) timers.push(setTimeout(function(){ nodes[i].classList.add('miss'); nos[i] && nos[i].classList.add('on'); }, 350));
+        else resolve(s);
+      }, 500 + i*750)); })(i); }
+      timers.push(setTimeout(function(){ si = (si+1) % scen.length; if(running) run(); }, 500 + (s.hit+1)*750 + 2300));
+    }
+    (function(){ var s = scen[0]; resolve(s); })();
+    if(!reduce) whenVisible(el, function(){ if(running) return; running = true; run(); }, function(){ running = false; clear(); }, .2);
+  })($('#flow'));
+
+  /* ---------- suffix palette ---------- */
+  var SUF = [['-ung','die Zeitung','газета'],['-heit','die Freiheit','свобода'],['-keit','die Möglichkeit','возможность'],['-schaft','die Freundschaft','дружба'],['-nis','das Ergebnis','результат'],['-tum','der Reichtum','богатство'],['-chen','das Mädchen','девочка'],['-ling','der Frühling','весна'],['-tät','die Universität','университет']];
+  var SC2 = [['var(--lav)',0],['var(--yel)',0],['var(--ora)',0],['var(--card2)',1],['#fff',0],['var(--lav)',0],['var(--yel)',0],['var(--ora)',0],['var(--card2)',1]];
+  $('#pal').innerHTML = SUF.map(function(s, i){ return '<button class="swt'+(SC2[i][1]?' dk':'')+'" style="background:'+SC2[i][0]+'" data-say="'+s[1]+'"><svg class="ic"><use href="#i-volume-2"/></svg><small>Suffix · 0'+(i+1)+'</small><b>'+s[0]+'</b><span>'+s[1]+'</span><i>'+s[2]+'</i></button>'; }).join('');
+
+  /* ---------- video facades ---------- */
+  $$('.vframe[data-yt]').forEach(function(f){
+    $('.vplay', f).onclick = function(){
+      f.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+f.dataset.yt+'?autoplay=1&rel=0&cc_load_policy=1&hl=ru" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    };
+  });
+
+  /* ---------- exercise 1: fix the letter ---------- */
+  var LETTER = 'Liebe* frau berger, am montag ist meine heizung kaputtgegangen. Beim* kochen friere ich in der küche. Können* sie mir bitte einen techniker schicken? Ich* bin jeden abend ab 18 uhr in der wohnung. Vielen* dank und liebe grüße aus wien!';
+  var TARGET = {frau:'die Frau, человек', berger:'фамилия, это имя', montag:'am Montag, день недели после am', heizung:'суффикс -ung', kochen:'beim + глагол = существительное', küche:'die Küche, место', sie:'вежливое Вы = Sie', techniker:'der Techniker, человек', abend:'jeden Abend, время суток', uhr:'die Uhr', wohnung:'суффикс -ung', dank:'der Dank', grüße:'die Grüße', wien:'город'};
+  var TRAP = {liebe:'liebe Grüße: тут liebe прилагательное, маленькая', meine:'притяжательное, маленькая', jeden:'местоимение, маленькая', bitte:'вежливое слово, маленькая'};
+  var paper = $('#paper'), nT = Object.keys(TARGET).length;
+  function buildLetter(){
+    paper.innerHTML = LETTER.split(' ').map(function(tok){
+      if(tok.indexOf('*') > -1) return '<span class="fx">'+tok.replace('*','')+'</span>';
+      var m = tok.match(/^([a-zäöüß0-9]+)(.*)$/i); if(!m) return tok;
+      if(/^\d+$/.test(m[1])) return tok;
+      return '<button type="button" class="tw" data-w="'+m[1]+'">'+m[1]+'</button>'+m[2];
+    }).join(' ');
+    $('#ex1Expl').classList.remove('on'); $('#ex1Score').textContent = ''; upd1();
+  }
+  function upd1(){ $('#ex1Cnt').textContent = $$('.tw.cap', paper).length + ' исправлено'; }
+  paper.addEventListener('click', function(e){
+    var b = e.target.closest('.tw'); if(!b) return;
+    b.classList.remove('ok','miss','bad');
+    var on = !b.classList.contains('cap'); b.classList.toggle('cap', on);
+    b.textContent = on ? cap(b.dataset.w) : b.dataset.w;
+    if(G && !reduce) G.fromTo(b, {scale:1.3, rotation:-6}, {scale:1, rotation:0, duration:.5, ease:'back.out(3)'});
+    upd1();
+  });
+  function check1(show){
+    var ok = 0, bad = 0, html = [];
+    $$('.tw', paper).forEach(function(b){
+      var w = b.dataset.w, need = TARGET.hasOwnProperty(w), on = b.classList.contains('cap');
+      b.classList.remove('ok','miss','bad');
+      if(show && need){ b.classList.add('cap','ok'); b.textContent = cap(w); ok++; return; }
+      if(need && on){ b.classList.add('ok'); ok++; }
+      else if(need && !on){ b.classList.add('miss'); }
+      else if(!need && on){ b.classList.add('bad'); bad++; }
+    });
+    Object.keys(TARGET).forEach(function(w){ html.push('<div><svg class="ic"><use href="#i-circle-check"/></svg><span><b>'+cap(w)+'</b> · '+TARGET[w]+'</span></div>'); });
+    Object.keys(TRAP).forEach(function(w){ html.push('<div class="trap"><svg class="ic"><use href="#i-circle-x"/></svg><span><b>'+w+'</b> · '+TRAP[w]+'</span></div>'); });
+    var ex = $('#ex1Expl'); ex.innerHTML = html.join(''); ex.classList.add('on');
+    $('#ex1Score').textContent = show ? 'Вот правильный ответ' : (ok + ' из ' + nT + (bad ? ' · лишних: ' + bad : '') + (ok === nT && !bad ? ' · идеально' : ''));
+    if(!show && ok === nT && !bad) confetti($('#ex1'), 40);
+    if(G && !reduce) G.from($$('div', ex), {y:14, duration:.45, stagger:.03, ease:'power2.out'});
+    upd1();
+  }
+  $('#ex1Check').onclick = function(){ check1(false); };
+  $('#ex1Show').onclick = function(){ check1(true); };
+  $('#ex1Reset').onclick = buildLetter;
+  buildLetter();
+
+  function confetti(host, n){
+    if(!G || reduce) return;
+    var colors = ['#F3F07B','#DCC5F7','#EC6F47','#FFFFFF','#161616'];
+    for(var i=0;i<n;i++){
+      var c = document.createElement('i'); c.className = 'conf'; c.style.background = colors[i%colors.length]; host.appendChild(c);
+      G.fromTo(c, {x:0, y:0, rotation:0}, {x:G.utils.random(-260,260), y:G.utils.random(-220,180), rotation:G.utils.random(-540,540), opacity:0, duration:G.utils.random(1,1.8), ease:'power3.out', onComplete:(function(el){ return function(){ el.remove(); }; })(c)});
+    }
+  }
+
+  /* ---------- exercise 2: quiz ---------- */
+  var Q = [
+    {q:'Ich gehe heute ___ ins Kino.', o:['abend','Abend'], c:1, x:'После heute, morgen, gestern время суток это существительное. heute Abend. Так с реформы 1996 года.'},
+    {q:'Wir gehen ___ schwimmen.', o:['sonntags','Sonntags'], c:0, x:'На -s это наречие: «по воскресеньям». Наречия маленькие. А вот am Sonntag с большой.'},
+    {q:'Beim ___ höre ich Podcasts.', o:['laufen','Laufen'], c:1, x:'beim это bei dem. Артикль спрятался внутри. Глагол стал существительным.'},
+    {q:'Ich wünsche dir alles ___!', o:['gute','Gute'], c:1, x:'alles, etwas, nichts, viel + прилагательное = существительное. alles Gute.'},
+    {q:'Das ist ein ___ Auto.', o:['deutsches','Deutsches'], c:0, x:'Прилагательное перед существительным. Маленькая. Большая тут только у Auto.'},
+    {q:'Herr Müller, können ___ mir helfen?', o:['sie','Sie'], c:1, x:'Вежливое Sie всегда с большой. С маленькой ты зовёшь на помощь каких-то «их».'},
+    {q:'«Der Gefangene floh». Что случилось?', o:['Поймали блоху','Заключённый сбежал'], c:1, x:'Gefangene с большой это существительное «заключённый». floh маленькое, глагол «сбежал».', nos:1}
+  ];
+  var qz = $('#qz'), qi = 0, res = [];
+  function bar(){ return '<div class="qbar">' + Q.map(function(_, i){ return '<i class="' + (res[i]===true?'ok':res[i]===false?'bad':i===qi?'cur':'') + '"></i>'; }).join('') + '</div>'; }
+  function drawQ(){
+    var it = Q[qi];
+    qz.innerHTML = bar() + '<p class="qn">Вопрос ' + (qi+1) + ' из ' + Q.length + '</p>' +
+      '<p class="qq">' + it.q.replace('___', '<u id="blank">___</u>') + '</p>' +
+      '<div class="qo">' + it.o.map(function(o, i){ return '<button type="button" data-i="'+i+'">'+o+'</button>'; }).join('') + '</div>' +
+      '<div class="qx" id="qx"><svg class="ic"><use href="#i-brain"/></svg><span>Выбери вариант. В шпаргалку не подглядывай.</span></div>';
+    $$('.qo button', qz).forEach(function(b){ b.onclick = function(){ answer(+b.dataset.i); }; });
+    if(G && !reduce) G.from($$('.qo button', qz), {y:20, scale:.9, duration:.5, ease:'back.out(2)', stagger:.06});
+  }
+  function answer(i){
+    var it = Q[qi], ok = i === it.c; res[qi] = ok;
+    $$('.qo button', qz).forEach(function(b){ b.disabled = true; var k = +b.dataset.i; if(k === it.c) b.classList.add('ok'); else if(k === i) b.classList.add('bad'); });
+    var chosen = $$('.qo button', qz)[i];
+    if(G && !reduce){ ok ? G.fromTo(chosen, {scale:.85}, {scale:1, duration:.6, ease:'elastic.out(1,.4)'}) : G.fromTo(chosen, {x:-8}, {x:0, duration:.5, ease:'elastic.out(1.2,.2)'}); }
+    var bl = $('#blank'); if(bl) bl.textContent = it.o[it.c];
+    var qx = $('#qx');
+    qx.innerHTML = '<svg class="ic"><use href="#i-' + (ok?'circle-check':'circle-x') + '"/></svg><span>' + (ok ? '<b>Верно.</b> ' : '<b>Мимо.</b> ') + it.x + '</span>';
+    if(ok) confetti(qz, 12);
+    if(!it.nos) say(it.q.replace('___', it.o[it.c]));
+    $('.qbar', qz).outerHTML = bar();
+    var nb = document.createElement('button'); nb.className = 'btn qnext'; nb.style.background = 'var(--ink)'; nb.style.color = '#fff'; nb.type = 'button';
+    nb.innerHTML = qi < Q.length-1 ? 'Дальше <svg class="ic"><use href="#i-arrow-right"/></svg>' : 'Результат <svg class="ic"><use href="#i-trophy"/></svg>';
+    nb.onclick = function(){ qi++; qi < Q.length ? drawQ() : done(); };
+    qz.appendChild(nb); nb.focus({preventScroll:true});
+  }
+  function done(){
+    var s = res.filter(Boolean).length, n = Q.length;
+    var msg = s === n ? 'Семь из семи. Ты пишешь как Дуден. Серьёзно.' : s >= 5 ? 'Почти. Перечитай ловушки со временем: heute Abend и abends.' : 'Нормально. Первый раз у всех так. Глянь шпаргалку и попробуй ещё.';
+    qz.innerHTML = bar() + '<div class="qres"><div class="score">'+s+'/'+n+' <svg class="ic"><use href="#i-trophy"/></svg></div><p class="qq" style="margin-top:6px">'+msg+'</p>' +
+      '<div class="row"><button type="button" class="btn" style="background:var(--ink);color:#fff" id="again"><svg class="ic"><use href="#i-rotate-ccw"/></svg> Ещё раз</button><a class="btn line" style="color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)" href="#cheat">Шпаргалка</a></div></div>';
+    $('#again').onclick = function(){ qi = 0; res = []; drawQ(); };
+    if(G && !reduce){ G.from('.qres .score', {scale:.3, rotation:-20, duration:1, ease:'elastic.out(1,.4)'}); confetti(qz, s*7); }
+  }
+  drawQ();
+
+  /* ---------- outro ---------- */
+  whenVisible($('#outro .giant'), function(){ setTimeout(function(){ $('#oc1').classList.add('up'); }, reduce?0:300); setTimeout(function(){ $('#oc2').classList.add('up'); }, reduce?0:900); }, null, .4);
+
+  /* ---------- section nav, progress, custom scrollbar ---------- */
+  var secs = $$('[data-sec]'), navA = $$('#nav a'), thumb = $('#thumb'), tl2 = $('#thumbL'), tip = $('#thumbTip'), rail = $('#rail'), ticksBox = $('#ticks'), prog = $('#prog');
+  var cur = null, idleT = null, ticks = [];
+  function top(el){ return el.getBoundingClientRect().top + scrollY; }
+  function maxScroll(){ return Math.max(1, document.documentElement.scrollHeight - innerHeight); }
+  function layoutTicks(){
+    ticksBox.innerHTML = ''; ticks = [];
+    var mx = maxScroll(), h = rail.clientHeight;
+    secs.forEach(function(s){ var p = Math.min(1, Math.max(0, (top(s) - 60) / mx)); var t = document.createElement('span'); t.className = 'tick'; t.style.top = (19 + p*(h-38)) + 'px'; t.dataset.p = p; ticksBox.appendChild(t); ticks.push(t); });
+  }
+  function current(){
+    var y = scrollY + innerHeight*.35, c = secs[0];
+    secs.forEach(function(s){ if(top(s) <= y) c = s; });
+    return c;
+  }
+  function onScroll(){
+    var p = Math.min(1, scrollY / maxScroll()), h = rail.clientHeight - thumb.offsetHeight;
+    thumb.style.translate = '0 ' + (p*h) + 'px';
+    prog.style.transform = 'scaleX(' + p + ')';
+    ticks.forEach(function(t){ t.classList.toggle('on', +t.dataset.p <= p + .002); });
+    var c = current();
+    if(c !== cur){
+      cur = c;
+      var id = c.id; navA.forEach(function(a){ var on = a.getAttribute('href') === '#' + id; a.classList.toggle('on', on); if(on && a.scrollIntoView){ var n = $('#nav'); n.scrollTo({left:a.offsetLeft - n.clientWidth/2 + a.offsetWidth/2, behavior:'smooth'}); } });
+      tip.textContent = c.dataset.w;
+    }
+    tl2.textContent = c.dataset.l;
+    thumb.classList.add('mv'); thumb.classList.remove('st');
+    clearTimeout(idleT);
+    idleT = setTimeout(function(){ thumb.classList.remove('mv'); tl2.textContent = c.dataset.l.toUpperCase(); thumb.classList.add('st'); setTimeout(function(){ thumb.classList.remove('st'); }, 1500); }, 220);
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', function(){ layoutTicks(); onScroll(); });
+  layoutTicks(); onScroll(); thumb.classList.remove('mv'); tl2.textContent = 'N';
+  // drag + click on the rail
+  var drag = false;
+  function toY(clientY){ var r = rail.getBoundingClientRect(), p = Math.min(1, Math.max(0, (clientY - r.top - thumb.offsetHeight/2) / (r.height - thumb.offsetHeight))); window.scrollTo({top:p*maxScroll(), behavior:'instant'}); }
+  thumb.addEventListener('pointerdown', function(e){ drag = true; thumb.classList.add('dr'); thumb.setPointerCapture(e.pointerId); e.preventDefault(); });
+  thumb.addEventListener('pointermove', function(e){ if(drag) toY(e.clientY); });
+  thumb.addEventListener('pointerup', function(){ drag = false; thumb.classList.remove('dr'); });
+  thumb.addEventListener('pointercancel', function(){ drag = false; thumb.classList.remove('dr'); });
+  $('#trk').addEventListener('click', function(e){ var r = rail.getBoundingClientRect(), p = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)); window.scrollTo({top:p*maxScroll(), behavior:'smooth'}); });
+
+  /* ---------- reveal + GSAP extras ---------- */
+  $$('.stg').forEach(function(g){ Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); }); });
+  if(G && !reduce){
+    $$('.h2').forEach(function(h){
+      var targets = h;
+      if(ST){ try{ var sp = new SplitText(h, {type:'words', wordsClass:'wd'}); targets = sp.words; }catch(e){} }
+      G.from(targets, {yPercent:60, rotation:5, transformOrigin:'0% 100%', duration:.8, ease:'back.out(2)', stagger:.045, scrollTrigger:{trigger:h, start:'top 88%', once:true}});
+    });
+    G.set('.rv', {y:44, rotation:1});
+    ScrollTrigger.batch('.rv', {start:'top 94%', once:true, onEnter:function(b){ G.to(b, {y:0, rotation:0, duration:.9, ease:'power3.out', stagger:.08}); }});
+    $$('.stg').forEach(function(g){ G.from(g.children, {y:30, scale:.92, rotation:function(){ return G.utils.random(-4,4); }, duration:.7, ease:'back.out(1.8)', stagger:.06, scrollTrigger:{trigger:g, start:'top 88%', once:true}}); });
+    ScrollTrigger.batch('.story', {start:'top 92%', once:true, onEnter:function(b){ G.from(b, {y:60, rotation:function(){ return G.utils.random(-5,5); }, duration:.8, ease:'back.out(1.6)', stagger:.1}); }});
+    ScrollTrigger.batch('.pbox', {start:'top 92%', once:true, onEnter:function(b){ G.from(b, {x:-40, rotation:-3, duration:.7, ease:'back.out(2)', stagger:.1}); }});
+    ScrollTrigger.batch('.swt', {start:'top 94%', once:true, onEnter:function(b){ G.from(b, {scale:.55, rotation:function(){ return G.utils.random(-14,14); }, duration:.7, ease:'back.out(2)', stagger:.05}); }});
+    ScrollTrigger.batch('.per .face', {start:'top 92%', once:true, onEnter:function(b){ G.from(b, {scale:.3, rotation:-120, duration:.8, ease:'back.out(2.2)', stagger:.1}); }});
+    // process + timeline lines draw with scroll
+    var vert = innerWidth < 860;
+    G.fromTo('#procLn', vert ? {scaleY:0} : {scaleX:0}, vert ? {scaleY:1, ease:'none', scrollTrigger:{trigger:'#proc', start:'top 80%', end:'bottom 60%', scrub:.5}} : {scaleX:1, ease:'none', scrollTrigger:{trigger:'#proc', start:'top 80%', end:'bottom 60%', scrub:.5}});
+    G.fromTo('#tlLn', {scaleY:0}, {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 60%', end:'bottom 60%', scrub:.4}});
+    // curved running text follows scroll
+    $$('.wave').forEach(function(w, i){
+      var tp = $('.tp', w), dir = i % 2 ? -1 : 1, base = 1000;
+      tp.setAttribute('startOffset', base);
+      G.fromTo(tp, {attr:{startOffset:base - dir*350}}, {attr:{startOffset:base + dir*350}, ease:'none', scrollTrigger:{trigger:w, start:'top bottom', end:'bottom top', scrub:.6}});
+    });
+    // hero parallax
+    G.to('.hero .doodle.d1', {yPercent:-30, rotation:12, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+    G.from('.hero .doodle.d1', {scale:.3, rotation:-60, duration:1.1, delay:.6, ease:'back.out(2)'});
+    G.from('.hero .meta .chip', {y:20, scale:.8, duration:.6, delay:.8, stagger:.07, ease:'back.out(2.4)'});
+    window.addEventListener('load', function(){ ScrollTrigger.refresh(); layoutTicks(); onScroll(); });
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); layoutTicks(); });
+  } else {
+    $$('.wave .tp').forEach(function(tp){ tp.setAttribute('startOffset', 1000); });
+    if('IntersectionObserver' in window && !reduce){
+      var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {rootMargin:'0px 0px 8% 0px', threshold:.12});
+      $$('.rv,.stg').forEach(function(el){ io.observe(el); });
+    }
+    window.addEventListener('load', function(){ layoutTicks(); onScroll(); });
+  }
+}
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', nomenInit); else nomenInit();
+</script>
+</body>
+</html>
